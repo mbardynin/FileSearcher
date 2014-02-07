@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.GUI", "FileSearcher.GUI\FileSearcher.GUI.csproj", "{55196594-C389-4283-AFA6-C79809F2A9B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.PlugIn.Txt", "FileSearcher.PlugIn.Txt\FileSearcher.PlugIn.Txt.csproj", "{7A9C026B-F3D8-4495-ACBD-F0B3C9A275E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.PlugIn.Xml", "FileSearcher.PlugIn.Xml\FileSearcher.PlugIn.Xml.csproj", "{7632993A-0FD1-4BE2-84D7-6CAA39D473F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.Common", "FileSearcher.Common\FileSearcher.Common.csproj", "{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55196594-C389-4283-AFA6-C79809F2A9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55196594-C389-4283-AFA6-C79809F2A9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55196594-C389-4283-AFA6-C79809F2A9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55196594-C389-4283-AFA6-C79809F2A9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A9C026B-F3D8-4495-ACBD-F0B3C9A275E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A9C026B-F3D8-4495-ACBD-F0B3C9A275E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A9C026B-F3D8-4495-ACBD-F0B3C9A275E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A9C026B-F3D8-4495-ACBD-F0B3C9A275E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7632993A-0FD1-4BE2-84D7-6CAA39D473F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7632993A-0FD1-4BE2-84D7-6CAA39D473F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7632993A-0FD1-4BE2-84D7-6CAA39D473F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7632993A-0FD1-4BE2-84D7-6CAA39D473F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
