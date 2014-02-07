@@ -33,6 +33,7 @@
 			this.txtGetText1 = new System.Windows.Forms.Button();
 			this.lblResult = new System.Windows.Forms.Label();
 			this.panelForPlugin = new System.Windows.Forms.FlowLayoutPanel();
+			this.btnUpdatePluginsList = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// lbxPlugIns
@@ -47,7 +48,7 @@
 			// 
 			this.btnSetPlugin.Location = new System.Drawing.Point(12, 327);
 			this.btnSetPlugin.Name = "btnSetPlugin";
-			this.btnSetPlugin.Size = new System.Drawing.Size(75, 23);
+			this.btnSetPlugin.Size = new System.Drawing.Size(65, 23);
 			this.btnSetPlugin.TabIndex = 1;
 			this.btnSetPlugin.Text = "SetPlugin";
 			this.btnSetPlugin.UseVisualStyleBackColor = true;
@@ -74,10 +75,20 @@
 			// 
 			// panelForPlugin
 			// 
-			this.panelForPlugin.Location = new System.Drawing.Point(166, 27);
+			this.panelForPlugin.Location = new System.Drawing.Point(373, 12);
 			this.panelForPlugin.Name = "panelForPlugin";
-			this.panelForPlugin.Size = new System.Drawing.Size(373, 209);
+			this.panelForPlugin.Size = new System.Drawing.Size(234, 54);
 			this.panelForPlugin.TabIndex = 5;
+			// 
+			// btnUpdatePluginsList
+			// 
+			this.btnUpdatePluginsList.Location = new System.Drawing.Point(12, 356);
+			this.btnUpdatePluginsList.Name = "btnUpdatePluginsList";
+			this.btnUpdatePluginsList.Size = new System.Drawing.Size(65, 23);
+			this.btnUpdatePluginsList.TabIndex = 1;
+			this.btnUpdatePluginsList.Text = "UpdateList";
+			this.btnUpdatePluginsList.UseVisualStyleBackColor = true;
+			this.btnUpdatePluginsList.Click += new System.EventHandler(this.btnUpdatePluginsList_Click);
 			// 
 			// Form1
 			// 
@@ -87,6 +98,7 @@
 			this.Controls.Add(this.panelForPlugin);
 			this.Controls.Add(this.lblResult);
 			this.Controls.Add(this.txtGetText1);
+			this.Controls.Add(this.btnUpdatePluginsList);
 			this.Controls.Add(this.btnSetPlugin);
 			this.Controls.Add(this.lbxPlugIns);
 			this.Name = "Form1";
@@ -103,6 +115,7 @@
 		private System.Windows.Forms.Button txtGetText1;
 		private System.Windows.Forms.Label lblResult;
 		private System.Windows.Forms.FlowLayoutPanel panelForPlugin;
+		private System.Windows.Forms.Button btnUpdatePluginsList;
 
 	}
 }

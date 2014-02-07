@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.PlugIn.Xml", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.Common", "FileSearcher.Common\FileSearcher.Common.csproj", "{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.Core", "FileSearcher.Core\FileSearcher.Core.csproj", "{F58FB131-5CA6-4BAF-851E-4792DB2EA67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSearcher.Core.Tests", "FileSearcher.Core.Tests\FileSearcher.Core.Tests.csproj", "{5AFD0F98-7153-4D90-B702-D8D55816863E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58FB131-5CA6-4BAF-851E-4792DB2EA67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58FB131-5CA6-4BAF-851E-4792DB2EA67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58FB131-5CA6-4BAF-851E-4792DB2EA67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58FB131-5CA6-4BAF-851E-4792DB2EA67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFD0F98-7153-4D90-B702-D8D55816863E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFD0F98-7153-4D90-B702-D8D55816863E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFD0F98-7153-4D90-B702-D8D55816863E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFD0F98-7153-4D90-B702-D8D55816863E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

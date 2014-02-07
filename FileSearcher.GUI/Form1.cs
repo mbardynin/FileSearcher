@@ -26,14 +26,16 @@ namespace FileSearcher.GUI
 			lbxPlugIns.DataSource = plugInControls;
 		}
 
+		private CompositionContainer container;
+			DirectoryCatalog catalog;
 		private void LoadPlugins()
 		{
-			var catalog = new DirectoryCatalog(".");
-			var container = new CompositionContainer(catalog);
+			catalog = new DirectoryCatalog(".");
+			container = new CompositionContainer(catalog);
 			container.ComposeParts(this);
 		}
 
-		[ImportMany(typeof(SearchControl))]
+		[ImportMany(typeof(SearchControl), AllowRecomposition = true)]
 		private IEnumerable<SearchControl> plugInControls = new List<SearchControl>();
 
 		private void btnSetPlugin_Click(object sender, EventArgs e)
@@ -47,7 +49,11 @@ namespace FileSearcher.GUI
 			lblResult.Text = ( panelForPlugin.Controls[ 0 ] as SearchControl ).Text1;
 		}
 
-		
+		private void btnUpdatePluginsList_Click(object sender, EventArgs e)
+		{
+			catalog.Refresh();
+			lbxPlugIns.DataSource = plugInControls;
+		}
 	}
 
 
