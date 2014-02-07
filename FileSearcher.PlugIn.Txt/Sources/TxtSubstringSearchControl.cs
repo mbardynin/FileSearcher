@@ -6,7 +6,7 @@ using FileSearcher.Common;
 
 namespace FileSearcher.PlugIn.Txt
 {
-	[Export(typeof(SearchControl))]
+	[ Export( typeof( SearchControl ) ) ]
 	public partial class TxtSubstringSearchControl : SearchControl
 	{
 		public TxtSubstringSearchControl()

@@ -1,11 +1,12 @@
+// Mike Bardynin [mikebardynin@gmail.com]
+
 using System;
 using System.Diagnostics.Contracts;
 
 using FileSearcher.Common;
 using FileSearcher.Common.Filtering;
-using FileSearcher.Core.FileWrapper;
 
-namespace FileSearcher.Core
+namespace FileSearcher.Core.Filtering
 {
 	public class DateTimeFilter : IFilter
 	{

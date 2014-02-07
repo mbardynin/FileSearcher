@@ -42,17 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="XmlNodeSearchControll.cs">
+    <Compile Include="Sources\XmlNodeSearchControll.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="XmlNodeSearchControll.Designer.cs">
+    <Compile Include="Sources\XmlNodeSearchControll.Designer.cs">
       <DependentUpon>XmlNodeSearchControll.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="XmlNodeSearchControll.resx">
+    <EmbeddedResource Include="Sources\XmlNodeSearchControll.resx">
       <DependentUpon>XmlNodeSearchControll.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

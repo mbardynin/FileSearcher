@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Mike Bardynin [mikebardynin@gmail.com]
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
@@ -10,19 +12,17 @@ namespace FileSearcher.Core
 {
 	public interface IFileSearcher
 	{
-		IEnumerable<IFileInfo> GetFiles(FileSearchSettings settings);
+		IEnumerable<IFileInfo> GetFiles( FileSearchSettings settings );
 	}
 
-	class SystemFileSearcher : IFileSearcher {
+	internal class SystemFileSearcher : IFileSearcher
+	{
 		public IEnumerable<IFileInfo> GetFiles( FileSearchSettings settings )
 		{
-			Contract.Requires<ArgumentException>(Directory.Exists(settings.Path), "Directory not exist.");
+			Contract.Requires<ArgumentException>( Directory.Exists( settings.Path ), "Directory not exist." );
 
 			var directoryInfo = new DirectoryInfo( settings.Path );
-			foreach (var fileInfo in directoryInfo.EnumerateFiles(
-				GetSearchPattern( settings ),
-				GetSearchOption( settings )))
-			{
+			foreach( var fileInfo in directoryInfo.EnumerateFiles( GetSearchPattern( settings ), GetSearchOption( settings ) ) ) {
 				yield return new FileInfoWrapper( fileInfo );
 			}
 		}

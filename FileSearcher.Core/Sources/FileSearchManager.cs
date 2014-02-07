@@ -5,7 +5,6 @@ using System.Linq;
 
 using FileSearcher.Common;
 using FileSearcher.Common.Filtering;
-using FileSearcher.Core.FileWrapper;
 
 namespace FileSearcher.Core
 {

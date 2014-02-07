@@ -1,4 +1,6 @@
-﻿namespace FileSearcher.Core
+﻿// Mike Bardynin [mikebardynin@gmail.com]
+
+namespace FileSearcher.Core
 {
 	public class FileSearchSettings
 	{

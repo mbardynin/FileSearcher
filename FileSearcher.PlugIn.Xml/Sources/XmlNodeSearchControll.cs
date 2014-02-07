@@ -6,7 +6,7 @@ using FileSearcher.Common;
 
 namespace FileSearcher.PlugIn.Xml
 {
-	[Export(typeof(SearchControl))]
+	[ Export( typeof( SearchControl ) ) ]
 	public partial class XmlNodeSearchControll : SearchControl
 	{
 		public XmlNodeSearchControll()

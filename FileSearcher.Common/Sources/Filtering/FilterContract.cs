@@ -1,3 +1,5 @@
+// Mike Bardynin [mikebardynin@gmail.com]
+
 using System;
 using System.Diagnostics.Contracts;
 
