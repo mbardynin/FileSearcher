@@ -74,19 +74,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSearchManager.cs" />
-    <Compile Include="FileSearchSettings.cs" />
-    <Compile Include="IFileSearcher.cs" />
-    <Compile Include="IFilter.cs" />
+    <Compile Include="Sources\FileSearchManager.cs" />
+    <Compile Include="Sources\FileSearchSettings.cs" />
+    <Compile Include="Sources\Filtering\DateTimeFilter.cs" />
+    <Compile Include="Sources\Filtering\SizeFilter.cs" />
+    <Compile Include="Sources\IFileSearcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FileWrapper\IFileInfo.cs" />
-    <Compile Include="FileWrapper\FileInfoWrapper.cs" />
+    <Compile Include="Sources\FileWrapper\FileInfoWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="InstallationDummyFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileSearcher.Common\FileSearcher.Common.csproj">
+      <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
+      <Name>FileSearcher.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

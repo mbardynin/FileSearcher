@@ -45,13 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileSearchManagerTests.cs" />
+    <Compile Include="Sources\DateTimeFilterTests.cs" />
+    <Compile Include="Sources\FileSearchManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\SizeFilterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileSearcher.Common\FileSearcher.Common.csproj">
+      <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
+      <Name>FileSearcher.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileSearcher.Core\FileSearcher.Core.csproj">
       <Project>{F58FB131-5CA6-4BAF-851E-4792DB2EA67F}</Project>
       <Name>FileSearcher.Core</Name>

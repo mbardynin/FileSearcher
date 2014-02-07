@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filtering\FilterContract.cs" />
+    <Compile Include="Filtering\IFilter.cs" />
+    <Compile Include="IFileInfo.cs" />
     <Compile Include="SearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

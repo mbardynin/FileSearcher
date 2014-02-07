@@ -14,7 +14,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Security.AccessControl;
 
-namespace FileSearcher.Core.FileWrapper
+namespace FileSearcher.Common
 {
 	public interface IFileInfo 
 	{

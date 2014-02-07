@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
 
+using FileSearcher.Common;
 using FileSearcher.Core.FileWrapper;
 
 namespace FileSearcher.Core
