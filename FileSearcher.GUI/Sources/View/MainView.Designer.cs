@@ -29,10 +29,10 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
 			this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -52,7 +52,7 @@
 			this.gbxFilters = new System.Windows.Forms.GroupBox();
 			this.flpFilters = new System.Windows.Forms.FlowLayoutPanel();
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvSearchResults = new System.Windows.Forms.DataGridView();
 			this.iFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,7 +67,7 @@
 			this.groupBox1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.gbxFilters.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.iFileInfoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -115,7 +115,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.gbxFilters, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.dgvSearchResults, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -264,13 +264,13 @@
 			this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
 			this.folderBrowserDialog1.ShowNewFolderButton = false;
 			// 
-			// dataGridView1
+			// dgvSearchResults
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.AutoGenerateColumns = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dgvSearchResults.AllowUserToAddRows = false;
+			this.dgvSearchResults.AllowUserToDeleteRows = false;
+			this.dgvSearchResults.AutoGenerateColumns = false;
+			this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvSearchResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn,
             this.directoryDataGridViewTextBoxColumn,
@@ -279,15 +279,15 @@
             this.lastAccessTimeDataGridViewTextBoxColumn,
             this.lastWriteTimeDataGridViewTextBoxColumn,
             this.attributesDataGridViewTextBoxColumn});
-			this.dataGridView1.DataSource = this.iFileInfoBindingSource;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(303, 3);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.RowHeadersVisible = false;
-			this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 2);
-			this.dataGridView1.Size = new System.Drawing.Size(548, 551);
-			this.dataGridView1.TabIndex = 6;
+			this.dgvSearchResults.DataSource = this.iFileInfoBindingSource;
+			this.dgvSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvSearchResults.Location = new System.Drawing.Point(303, 3);
+			this.dgvSearchResults.Name = "dgvSearchResults";
+			this.dgvSearchResults.ReadOnly = true;
+			this.dgvSearchResults.RowHeadersVisible = false;
+			this.tableLayoutPanel1.SetRowSpan(this.dgvSearchResults, 2);
+			this.dgvSearchResults.Size = new System.Drawing.Size(548, 551);
+			this.dgvSearchResults.TabIndex = 6;
 			// 
 			// iFileInfoBindingSource
 			// 
@@ -307,9 +307,9 @@
 			// 
 			this.lengthDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
-			dataGridViewCellStyle9.Format = "N0";
-			dataGridViewCellStyle9.NullValue = null;
-			this.lengthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+			dataGridViewCellStyle5.Format = "N0";
+			dataGridViewCellStyle5.NullValue = null;
+			this.lengthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
 			this.lengthDataGridViewTextBoxColumn.HeaderText = "Size in bytes";
 			this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
 			this.lengthDataGridViewTextBoxColumn.ReadOnly = true;
@@ -337,9 +337,9 @@
 			// 
 			this.creationTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.creationTimeDataGridViewTextBoxColumn.DataPropertyName = "CreationTime";
-			dataGridViewCellStyle10.Format = "d";
-			dataGridViewCellStyle10.NullValue = null;
-			this.creationTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+			dataGridViewCellStyle6.Format = "d";
+			dataGridViewCellStyle6.NullValue = null;
+			this.creationTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
 			this.creationTimeDataGridViewTextBoxColumn.HeaderText = "CreationTime";
 			this.creationTimeDataGridViewTextBoxColumn.Name = "creationTimeDataGridViewTextBoxColumn";
 			this.creationTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -349,9 +349,9 @@
 			// 
 			this.lastAccessTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.lastAccessTimeDataGridViewTextBoxColumn.DataPropertyName = "LastAccessTime";
-			dataGridViewCellStyle11.Format = "d";
-			dataGridViewCellStyle11.NullValue = null;
-			this.lastAccessTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+			dataGridViewCellStyle7.Format = "d";
+			dataGridViewCellStyle7.NullValue = null;
+			this.lastAccessTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
 			this.lastAccessTimeDataGridViewTextBoxColumn.HeaderText = "LastAccessTime";
 			this.lastAccessTimeDataGridViewTextBoxColumn.Name = "lastAccessTimeDataGridViewTextBoxColumn";
 			this.lastAccessTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -361,9 +361,9 @@
 			// 
 			this.lastWriteTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
 			this.lastWriteTimeDataGridViewTextBoxColumn.DataPropertyName = "LastWriteTime";
-			dataGridViewCellStyle12.Format = "d";
-			dataGridViewCellStyle12.NullValue = null;
-			this.lastWriteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+			dataGridViewCellStyle8.Format = "d";
+			dataGridViewCellStyle8.NullValue = null;
+			this.lastWriteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
 			this.lastWriteTimeDataGridViewTextBoxColumn.HeaderText = "LastWriteTime";
 			this.lastWriteTimeDataGridViewTextBoxColumn.Name = "lastWriteTimeDataGridViewTextBoxColumn";
 			this.lastWriteTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -394,7 +394,7 @@
 			this.groupBox1.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.gbxFilters.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.iFileInfoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -423,7 +423,7 @@
 		private System.Windows.Forms.GroupBox gbxFilters;
 		private System.Windows.Forms.FlowLayoutPanel flpFilters;
 		private System.Windows.Forms.BindingSource iFileInfoBindingSource;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvSearchResults;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn directoryDataGridViewTextBoxColumn;

@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model;
@@ -40,7 +41,20 @@ namespace FileSearcher.GUI.Controller
 			_view.AddFilters( fileSizeSearchFilterView );
 			filtersCollection.AddHelper( new NumbersFilter( fileSizeSearchFilterView ) );
 
+			AddDateTimeFilter(filtersCollection, info => info.CreationTime);
+			AddDateTimeFilter(filtersCollection, info => info.LastAccessTime);
+			AddDateTimeFilter(filtersCollection, info => info.LastWriteTime);
+
 			BaseFilter = filtersCollection;
+		}
+
+		private void AddDateTimeFilter(
+			FiltersCollection filtersCollection,
+			Expression<Func<IFileInfo, DateTime>> dateTimeGetter )
+		{
+			var dateTimeSearchFilterView = new DateTimeSearchFilterView();
+			_view.AddFilters( dateTimeSearchFilterView );
+			filtersCollection.AddHelper( new DateTimeFilter( dateTimeSearchFilterView, dateTimeGetter ) );
 		}
 
 		private void StartSearch(

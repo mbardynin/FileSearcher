@@ -42,6 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\DateTimeSearchFilterView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sources\DateTimeSearchFilterView.Designer.cs">
+      <DependentUpon>DateTimeSearchFilterView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\FileSizeSearchFilterView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -51,6 +57,9 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Sources\DateTimeSearchFilterView.resx">
+      <DependentUpon>DateTimeSearchFilterView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sources\FileSizeSearchFilterView.resx">
       <DependentUpon>FileSizeSearchFilterView.cs</DependentUpon>
     </EmbeddedResource>
