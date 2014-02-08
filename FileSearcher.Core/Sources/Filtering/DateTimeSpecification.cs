@@ -8,13 +8,13 @@ using FileSearcher.Common.Filtering;
 
 namespace FileSearcher.Core.Filtering
 {
-	public class DateTimeFilter : IFilter
+	public class DateTimeSpecification : ISpecification
 	{
 		private readonly Func<IFileInfo, DateTime> _dateTimeGetter;
 		private readonly DateTime _maxDate;
 		private readonly DateTime _minDate;
 
-		public DateTimeFilter(
+		public DateTimeSpecification(
 			DateTime? minDate,
 			DateTime? maxDate,
 			Func<IFileInfo, DateTime> dateTimeGetter )
@@ -27,7 +27,7 @@ namespace FileSearcher.Core.Filtering
 			_dateTimeGetter = dateTimeGetter;
 		}
 
-		public bool IsPass( IFileInfo file )
+		public bool IsSatisfiedBy( IFileInfo file )
 		{
 			return _dateTimeGetter( file ) >= _minDate && _dateTimeGetter( file ) <= _maxDate;
 		}

@@ -8,12 +8,12 @@ using FileSearcher.Common.Filtering;
 
 namespace FileSearcher.Core.Filtering
 {
-	public class SizeFilter : IFilter
+	public class SizeSpecification : ISpecification
 	{
 		private readonly long _maxSize;
 		private readonly long _minSize;
 
-		public SizeFilter(
+		public SizeSpecification(
 			long? minSize,
 			long? maxSize )
 		{
@@ -24,7 +24,7 @@ namespace FileSearcher.Core.Filtering
 			_maxSize = maxSize ?? long.MaxValue;
 		}
 
-		public bool IsPass( IFileInfo file )
+		public bool IsSatisfiedBy( IFileInfo file )
 		{
 			return file.Length >= _minSize && file.Length <= _maxSize;
 		}

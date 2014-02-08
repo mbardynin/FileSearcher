@@ -5,10 +5,10 @@ using System.Diagnostics.Contracts;
 
 namespace FileSearcher.Common.Filtering
 {
-	[ ContractClassFor( typeof( IFilter ) ) ]
-	public abstract class FilterContract : IFilter
+	[ ContractClassFor( typeof( ISpecification ) ) ]
+	public abstract class SpecificationContract : ISpecification
 	{
-		public bool IsPass( IFileInfo file )
+		public bool IsSatisfiedBy( IFileInfo file )
 		{
 			Contract.Requires<ArgumentNullException>( file != null );
 			return default( bool );

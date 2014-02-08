@@ -10,7 +10,7 @@ using Moq;
 
 using NUnit.Framework;
 
-namespace FileSearcher.Core.Tests
+namespace FileSearcher.Core.Tests.Filters
 {
 	[ TestFixture ]
 	public class SizeFilterTests
@@ -21,7 +21,7 @@ namespace FileSearcher.Core.Tests
 			long? maxSize,
 			IFileInfo fileInfo )
 		{
-			return new SizeFilter( minSize, maxSize ).IsPass( fileInfo );
+			return new SizeSpecification( minSize, maxSize ).IsSatisfiedBy( fileInfo );
 		}
 
 		private static IFileInfo GetFileInfo( long size )

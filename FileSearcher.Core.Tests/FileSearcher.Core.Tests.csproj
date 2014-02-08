@@ -45,10 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\DateTimeFilterTests.cs" />
+    <Compile Include="Sources\Filters\AttributesFilterTests.cs" />
+    <Compile Include="Sources\Filters\DateTimeFilterTests.cs" />
     <Compile Include="Sources\FileSearchManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sources\SizeFilterTests.cs" />
+    <Compile Include="Sources\Filters\SizeFilterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

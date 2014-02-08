@@ -10,7 +10,7 @@ using Moq;
 
 using NUnit.Framework;
 
-namespace FileSearcher.Core.Tests
+namespace FileSearcher.Core.Tests.Filters
 {
 	[ TestFixture ]
 	public class DateTimeFilterTests
@@ -21,7 +21,7 @@ namespace FileSearcher.Core.Tests
 			DateTime? maxDate,
 			IFileInfo fileInfo )
 		{
-			return new DateTimeFilter( minDate, maxDate, d => d.CreationTime ).IsPass( fileInfo );
+			return new DateTimeSpecification( minDate, maxDate, d => d.CreationTime ).IsSatisfiedBy( fileInfo );
 		}
 
 		public static IEnumerable TestCases

@@ -4,9 +4,9 @@ using System.Diagnostics.Contracts;
 
 namespace FileSearcher.Common.Filtering
 {
-	[ ContractClass( typeof( FilterContract ) ) ]
-	public interface IFilter
+	[ ContractClass( typeof( SpecificationContract ) ) ]
+	public interface ISpecification
 	{
-		bool IsPass( IFileInfo file );
+		bool IsSatisfiedBy( IFileInfo file );
 	}
 }

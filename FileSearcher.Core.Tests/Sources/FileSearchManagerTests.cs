@@ -17,14 +17,14 @@ namespace FileSearcher.Core.Tests
 		private MockRepository _mockContainer;
 		private Mock<IFileSearcher> _fileSearcherMock;
 		private Mock<IFileInfo> _fileInfoMock;
-		private Mock<IFilter> _filterMock;
+		private Mock<ISpecification> _filterMock;
 
 		[ SetUp ]
 		public void Setup()
 		{
 			_mockContainer = new MockRepository( MockBehavior.Strict );
 			_fileSearcherMock = _mockContainer.Create<IFileSearcher>();
-			_filterMock = _mockContainer.Create<IFilter>();
+			_filterMock = _mockContainer.Create<ISpecification>();
 			_fileInfoMock = _mockContainer.Create<IFileInfo>();
 		}
 
@@ -32,7 +32,7 @@ namespace FileSearcher.Core.Tests
 		public void Search_VerifyAllExpectedCalls()
 		{
 			// Arrange
-			_filterMock.Setup( f => f.IsPass( It.IsAny<IFileInfo>() ) ).Returns( true );
+			_filterMock.Setup( f => f.IsSatisfiedBy( It.IsAny<IFileInfo>() ) ).Returns( true );
 			_fileSearcherMock.Setup( x => x.GetFiles( It.IsAny<FileSearchSettings>() ) )
 				.Returns( new[] {_fileInfoMock.Object} )
 				.Verifiable();
@@ -50,7 +50,7 @@ namespace FileSearcher.Core.Tests
 		public void Search_CheckFiltering()
 		{
 			// Arrange
-			_filterMock.Setup( f => f.IsPass( It.IsAny<IFileInfo>() ) ).Returns( false );
+			_filterMock.Setup( f => f.IsSatisfiedBy( It.IsAny<IFileInfo>() ) ).Returns( false );
 			_fileSearcherMock.Setup( x => x.GetFiles( It.IsAny<FileSearchSettings>() ) )
 				.Returns( new[] {_fileInfoMock.Object} )
 				.Verifiable();
@@ -69,7 +69,7 @@ namespace FileSearcher.Core.Tests
 		public void Search_CheckFilesLimit()
 		{
 			// Arrange
-			_filterMock.Setup( f => f.IsPass( It.IsAny<IFileInfo>() ) ).Returns( true );
+			_filterMock.Setup( f => f.IsSatisfiedBy( It.IsAny<IFileInfo>() ) ).Returns( true );
 			_fileSearcherMock.Setup( x => x.GetFiles( It.IsAny<FileSearchSettings>() ) )
 				.Returns( new[] {_fileInfoMock.Object, _fileInfoMock.Object} )
 				.Verifiable();
