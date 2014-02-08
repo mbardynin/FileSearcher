@@ -39,14 +39,14 @@
 			// lbxPlugIns
 			// 
 			this.lbxPlugIns.FormattingEnabled = true;
-			this.lbxPlugIns.Location = new System.Drawing.Point(12, 5);
+			this.lbxPlugIns.Location = new System.Drawing.Point(12, 265);
 			this.lbxPlugIns.Name = "lbxPlugIns";
-			this.lbxPlugIns.Size = new System.Drawing.Size(117, 316);
+			this.lbxPlugIns.Size = new System.Drawing.Size(178, 121);
 			this.lbxPlugIns.TabIndex = 0;
 			// 
 			// btnSetPlugin
 			// 
-			this.btnSetPlugin.Location = new System.Drawing.Point(12, 327);
+			this.btnSetPlugin.Location = new System.Drawing.Point(210, 184);
 			this.btnSetPlugin.Name = "btnSetPlugin";
 			this.btnSetPlugin.Size = new System.Drawing.Size(65, 23);
 			this.btnSetPlugin.TabIndex = 1;
@@ -82,7 +82,7 @@
 			// 
 			// btnUpdatePluginsList
 			// 
-			this.btnUpdatePluginsList.Location = new System.Drawing.Point(12, 356);
+			this.btnUpdatePluginsList.Location = new System.Drawing.Point(210, 213);
 			this.btnUpdatePluginsList.Name = "btnUpdatePluginsList";
 			this.btnUpdatePluginsList.Size = new System.Drawing.Size(65, 23);
 			this.btnUpdatePluginsList.TabIndex = 1;
