@@ -31,9 +31,10 @@ namespace FileSearcher.GUI.Model
 				if( filter.IsSatisfiedBy( file ) ) {
 					if( ++i <= _maxFilesInSearchResults )
 						yield return file;
-
-					ResultIsLimited = true;
-					yield break;
+					else {
+						ResultIsLimited = true;
+						yield break;
+					}
 				}
 			}
 		}

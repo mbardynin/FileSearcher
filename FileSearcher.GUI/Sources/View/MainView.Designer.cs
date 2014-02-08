@@ -29,6 +29,10 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
 			this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -47,14 +51,23 @@
 			this.btnSearch = new System.Windows.Forms.Button();
 			this.gbxFilters = new System.Windows.Forms.GroupBox();
 			this.flpFilters = new System.Windows.Forms.FlowLayoutPanel();
-			this.lbxSearchResults = new System.Windows.Forms.ListBox();
-			this.iFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.iFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.directoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.isReadOnlyDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.creationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastAccessTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.lastWriteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.attributesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.statusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.gbxFilters.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.iFileInfoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -82,17 +95,17 @@
 			// lblStatus
 			// 
 			this.lblStatus.Name = "lblStatus";
+			this.lblStatus.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.lblStatus.Size = new System.Drawing.Size(39, 17);
 			this.lblStatus.Text = "Status";
-			this.lblStatus.Visible = false;
 			// 
 			// lblWarnings
 			// 
 			this.lblWarnings.ForeColor = System.Drawing.Color.Crimson;
 			this.lblWarnings.Name = "lblWarnings";
+			this.lblWarnings.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.lblWarnings.Size = new System.Drawing.Size(57, 17);
 			this.lblWarnings.Text = "Warnings";
-			this.lblWarnings.Visible = false;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -102,7 +115,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.gbxFilters, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.lbxSearchResults, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -173,6 +186,7 @@
 			this.btnBrowseToDirectory.TabIndex = 2;
 			this.btnBrowseToDirectory.Text = "...";
 			this.btnBrowseToDirectory.UseVisualStyleBackColor = true;
+			this.btnBrowseToDirectory.Click += new System.EventHandler(this.btnBrowseToDirectory_Click);
 			// 
 			// txtPath
 			// 
@@ -181,6 +195,7 @@
 			this.txtPath.ReadOnly = true;
 			this.txtPath.Size = new System.Drawing.Size(256, 20);
 			this.txtPath.TabIndex = 1;
+			this.txtPath.Text = "E:\\backups";
 			// 
 			// flowLayoutPanel1
 			// 
@@ -243,28 +258,123 @@
 			this.flpFilters.Size = new System.Drawing.Size(288, 460);
 			this.flpFilters.TabIndex = 0;
 			// 
-			// lbxSearchResults
-			// 
-			this.lbxSearchResults.DataSource = this.iFileInfoBindingSource;
-			this.lbxSearchResults.DisplayMember = "Name";
-			this.lbxSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbxSearchResults.FormattingEnabled = true;
-			this.lbxSearchResults.Location = new System.Drawing.Point(303, 3);
-			this.lbxSearchResults.MultiColumn = true;
-			this.lbxSearchResults.Name = "lbxSearchResults";
-			this.tableLayoutPanel1.SetRowSpan(this.lbxSearchResults, 2);
-			this.lbxSearchResults.Size = new System.Drawing.Size(548, 551);
-			this.lbxSearchResults.TabIndex = 6;
-			// 
-			// iFileInfoBindingSource
-			// 
-			this.iFileInfoBindingSource.DataSource = typeof(FileSearcher.Common.Model.IFileInfo);
-			// 
 			// folderBrowserDialog1
 			// 
 			this.folderBrowserDialog1.Description = "Select the folder in which will search files.";
 			this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
 			this.folderBrowserDialog1.ShowNewFolderButton = false;
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoGenerateColumns = false;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.lengthDataGridViewTextBoxColumn,
+            this.directoryDataGridViewTextBoxColumn,
+            this.isReadOnlyDataGridViewCheckBoxColumn,
+            this.creationTimeDataGridViewTextBoxColumn,
+            this.lastAccessTimeDataGridViewTextBoxColumn,
+            this.lastWriteTimeDataGridViewTextBoxColumn,
+            this.attributesDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.iFileInfoBindingSource;
+			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.Location = new System.Drawing.Point(303, 3);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.RowHeadersVisible = false;
+			this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 2);
+			this.dataGridView1.Size = new System.Drawing.Size(548, 551);
+			this.dataGridView1.TabIndex = 6;
+			// 
+			// iFileInfoBindingSource
+			// 
+			this.iFileInfoBindingSource.DataSource = typeof(FileSearcher.Common.Model.IFileInfo);
+			// 
+			// nameDataGridViewTextBoxColumn
+			// 
+			this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+			this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+			this.nameDataGridViewTextBoxColumn.Frozen = true;
+			this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+			this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+			this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+			this.nameDataGridViewTextBoxColumn.Width = 60;
+			// 
+			// lengthDataGridViewTextBoxColumn
+			// 
+			this.lengthDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.lengthDataGridViewTextBoxColumn.DataPropertyName = "Length";
+			dataGridViewCellStyle9.Format = "N0";
+			dataGridViewCellStyle9.NullValue = null;
+			this.lengthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+			this.lengthDataGridViewTextBoxColumn.HeaderText = "Size in bytes";
+			this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
+			this.lengthDataGridViewTextBoxColumn.ReadOnly = true;
+			this.lengthDataGridViewTextBoxColumn.Width = 91;
+			// 
+			// directoryDataGridViewTextBoxColumn
+			// 
+			this.directoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+			this.directoryDataGridViewTextBoxColumn.DataPropertyName = "Directory";
+			this.directoryDataGridViewTextBoxColumn.HeaderText = "Directory";
+			this.directoryDataGridViewTextBoxColumn.MinimumWidth = 100;
+			this.directoryDataGridViewTextBoxColumn.Name = "directoryDataGridViewTextBoxColumn";
+			this.directoryDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// isReadOnlyDataGridViewCheckBoxColumn
+			// 
+			this.isReadOnlyDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.isReadOnlyDataGridViewCheckBoxColumn.DataPropertyName = "IsReadOnly";
+			this.isReadOnlyDataGridViewCheckBoxColumn.HeaderText = "IsReadOnly";
+			this.isReadOnlyDataGridViewCheckBoxColumn.Name = "isReadOnlyDataGridViewCheckBoxColumn";
+			this.isReadOnlyDataGridViewCheckBoxColumn.ReadOnly = true;
+			this.isReadOnlyDataGridViewCheckBoxColumn.Width = 68;
+			// 
+			// creationTimeDataGridViewTextBoxColumn
+			// 
+			this.creationTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.creationTimeDataGridViewTextBoxColumn.DataPropertyName = "CreationTime";
+			dataGridViewCellStyle10.Format = "d";
+			dataGridViewCellStyle10.NullValue = null;
+			this.creationTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+			this.creationTimeDataGridViewTextBoxColumn.HeaderText = "CreationTime";
+			this.creationTimeDataGridViewTextBoxColumn.Name = "creationTimeDataGridViewTextBoxColumn";
+			this.creationTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			this.creationTimeDataGridViewTextBoxColumn.Width = 94;
+			// 
+			// lastAccessTimeDataGridViewTextBoxColumn
+			// 
+			this.lastAccessTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.lastAccessTimeDataGridViewTextBoxColumn.DataPropertyName = "LastAccessTime";
+			dataGridViewCellStyle11.Format = "d";
+			dataGridViewCellStyle11.NullValue = null;
+			this.lastAccessTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+			this.lastAccessTimeDataGridViewTextBoxColumn.HeaderText = "LastAccessTime";
+			this.lastAccessTimeDataGridViewTextBoxColumn.Name = "lastAccessTimeDataGridViewTextBoxColumn";
+			this.lastAccessTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			this.lastAccessTimeDataGridViewTextBoxColumn.Width = 110;
+			// 
+			// lastWriteTimeDataGridViewTextBoxColumn
+			// 
+			this.lastWriteTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+			this.lastWriteTimeDataGridViewTextBoxColumn.DataPropertyName = "LastWriteTime";
+			dataGridViewCellStyle12.Format = "d";
+			dataGridViewCellStyle12.NullValue = null;
+			this.lastWriteTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+			this.lastWriteTimeDataGridViewTextBoxColumn.HeaderText = "LastWriteTime";
+			this.lastWriteTimeDataGridViewTextBoxColumn.Name = "lastWriteTimeDataGridViewTextBoxColumn";
+			this.lastWriteTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// attributesDataGridViewTextBoxColumn
+			// 
+			this.attributesDataGridViewTextBoxColumn.DataPropertyName = "Attributes";
+			this.attributesDataGridViewTextBoxColumn.HeaderText = "Attributes";
+			this.attributesDataGridViewTextBoxColumn.Name = "attributesDataGridViewTextBoxColumn";
+			this.attributesDataGridViewTextBoxColumn.ReadOnly = true;
+			this.attributesDataGridViewTextBoxColumn.Width = 150;
 			// 
 			// MainView
 			// 
@@ -284,6 +394,7 @@
 			this.groupBox1.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.gbxFilters.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.iFileInfoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -311,8 +422,16 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.GroupBox gbxFilters;
 		private System.Windows.Forms.FlowLayoutPanel flpFilters;
-		private System.Windows.Forms.ListBox lbxSearchResults;
 		private System.Windows.Forms.BindingSource iFileInfoBindingSource;
+		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn directoryDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn isReadOnlyDataGridViewCheckBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn creationTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn lastAccessTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn lastWriteTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn attributesDataGridViewTextBoxColumn;
 
 	}
 }

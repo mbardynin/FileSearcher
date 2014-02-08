@@ -1,6 +1,7 @@
 ﻿// Mike Bardynin [mikebardynin@gmail.com]
 
 using System;
+using System.Linq;
 
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model;
@@ -34,10 +35,10 @@ namespace FileSearcher.GUI.Controller
 		private void InitializeBaseFilter()
 		{
 			var filtersCollection = new FiltersCollection();
-			
+
 			var fileSizeSearchFilterView = new FileSizeSearchFilterView();
-			_view.AddFilters(fileSizeSearchFilterView);
-			filtersCollection.AddHelper(new NumbersFilter(fileSizeSearchFilterView));
+			_view.AddFilters( fileSizeSearchFilterView );
+			filtersCollection.AddHelper( new NumbersFilter( fileSizeSearchFilterView ) );
 
 			BaseFilter = filtersCollection;
 		}
@@ -48,7 +49,7 @@ namespace FileSearcher.GUI.Controller
 		{
 			var result = _model.Search(
 				_view.GetMainSettings(),
-				BaseFilter.GetFilteringSpecification().And( PluginFilter.GetFilteringSpecification() ) );
+				BaseFilter.GetFilteringSpecification().And( PluginFilter.GetFilteringSpecification() ) ).ToList();
 			if( _model.ResultIsLimited )
 				_view.Warning = string.Format( "Shown first {0} find files.", Settings.Default.MaxItemsInSearchResults );
 			_view.DisplaySearchResult( result );

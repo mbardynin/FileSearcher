@@ -14,16 +14,37 @@ namespace FileSearcher.GUI.View
 		public MainView()
 		{
 			InitializeComponent();
+			toolStripProgressBar1.MarqueeAnimationSpeed = 0;
 			btnSearch.Click += ( sender,
-				args ) => StartSearch( sender, args );
+				args ) => {
+				Warning = "";
+				StartSearch( sender, args );
+			};
+
+			btnClear.Click += ( sender,
+				args ) => ClearSearchResults();
 		}
 
 		//-------------------------------------------------------------------------------------[]
 		public event EventHandler StartSearch = delegate {};
 
 		//-------------------------------------------------------------------------------------[]
-		public string Warning { get { return lblWarnings.Text; } set { lblWarnings.Text = value; } }
-		public string Status { get { return lblStatus.Text; } set { lblStatus.Text = value; } }
+		public string Warning
+		{
+			get { return lblWarnings.Text; }
+			set
+			{
+				lblWarnings.Text = value;
+			}
+		}
+		public string Status
+		{
+			get { return lblStatus.Text; }
+			set
+			{
+				lblStatus.Text = value;
+			}
+		}
 
 		//-------------------------------------------------------------------------------------[]
 		public void AddFilters( params Control[] filterControls )
@@ -36,7 +57,6 @@ namespace FileSearcher.GUI.View
 			iFileInfoBindingSource.DataSource = fileInfoList;
 		}
 
-
 		public FileSearchSettings GetMainSettings()
 		{
 			return new FileSearchSettings() {
@@ -48,7 +68,16 @@ namespace FileSearcher.GUI.View
 
 		private void ClearSearchResults()
 		{
-			lbxSearchResults.Items.Clear();
+			iFileInfoBindingSource.Clear();
+		}
+
+		private void btnBrowseToDirectory_Click(
+			object sender,
+			EventArgs e )
+		{
+			var dialogResult = folderBrowserDialog1.ShowDialog();
+			if( dialogResult == DialogResult.OK )
+				txtPath.Text = folderBrowserDialog1.SelectedPath;
 		}
 	}
 }

@@ -81,6 +81,11 @@
 			// 
 			this.nudMinSize.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.nudMinSize.Location = new System.Drawing.Point(110, 3);
+			this.nudMinSize.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
 			this.nudMinSize.Name = "nudMinSize";
 			this.nudMinSize.Size = new System.Drawing.Size(76, 20);
 			this.nudMinSize.TabIndex = 2;
@@ -105,6 +110,11 @@
 			this.nudMaxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.nudMaxSize.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.nudMaxSize.Location = new System.Drawing.Point(208, 3);
+			this.nudMaxSize.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
 			this.nudMaxSize.Name = "nudMaxSize";
 			this.nudMaxSize.Size = new System.Drawing.Size(76, 20);
 			this.nudMaxSize.TabIndex = 2;
