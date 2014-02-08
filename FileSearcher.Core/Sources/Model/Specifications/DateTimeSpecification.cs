@@ -4,9 +4,9 @@ using System;
 using System.Diagnostics.Contracts;
 
 using FileSearcher.Common;
-using FileSearcher.Common.Filtering;
+using FileSearcher.Common.Specifications;
 
-namespace FileSearcher.Core.Filtering
+namespace FileSearcher.Core.Model.Specifications
 {
 	public class DateTimeSpecification : ISpecification
 	{

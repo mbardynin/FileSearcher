@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55196594-C389-4283-AFA6-C79809F2A9B1}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{A8894299-256D-4CE6-BDCE-1B7C810E0A39}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileSearcher.GUI</RootNamespace>
-    <AssemblyName>FileSearcher.GUI</AssemblyName>
+    <RootNamespace>FileSearcher.GUI.Controls</RootNamespace>
+    <AssemblyName>FileSearcher.GUI.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,54 +31,42 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\MainForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="BaseSearchFilterView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Sources\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="BaseSearchFilterView.Designer.cs">
+      <DependentUpon>BaseSearchFilterView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Sources\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="Sources\FileSizeSearchFilterView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    <Compile Include="Sources\FileSizeSearchFilterView.Designer.cs">
+      <DependentUpon>FileSizeSearchFilterView.cs</DependentUpon>
     </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EmbeddedResource Include="BaseSearchFilterView.resx">
+      <DependentUpon>BaseSearchFilterView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\FileSizeSearchFilterView.resx">
+      <DependentUpon>FileSizeSearchFilterView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileSearcher.Common\FileSearcher.Common.csproj">
-      <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
+      <Project>{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}</Project>
       <Name>FileSearcher.Common</Name>
     </ProjectReference>
   </ItemGroup>

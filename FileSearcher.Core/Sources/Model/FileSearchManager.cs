@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using FileSearcher.Common;
-using FileSearcher.Common.Filtering;
+using FileSearcher.Common.Specifications;
 
-namespace FileSearcher.Core
+namespace FileSearcher.Core.Model
 {
 	public class FileSearchManager
 	{
@@ -19,18 +19,16 @@ namespace FileSearcher.Core
 		{
 			_fileSearcher = fileSearcher;
 			_maxFilesInSearchResults = maxFilesInSearchResults;
-			//var directory = new DirectoryInfo( "path" );
 		}
 
 		public IEnumerable<IFileInfo> Search(
 			FileSearchSettings settings,
-			IEnumerable<ISpecification> filters )
+			ISpecification filter )
 		{
-			var filtersList = filters.ToList();
 			ResultIsLimited = false;
 			var i = 0;
 			foreach( var file in _fileSearcher.GetFiles( settings ).Take( _maxFilesInSearchResults + 1 ) ) {
-				if( filtersList.All( filter => filter.IsSatisfiedBy( file ) ) ) {
+				if( filter.IsSatisfiedBy( file ) ) {
 					if( ++i <= _maxFilesInSearchResults )
 						yield return file;
 

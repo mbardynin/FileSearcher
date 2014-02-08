@@ -3,7 +3,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace FileSearcher.Common.Filtering
+namespace FileSearcher.Common.Specifications
 {
 	[ ContractClassFor( typeof( ISpecification ) ) ]
 	public abstract class SpecificationContract : ISpecification

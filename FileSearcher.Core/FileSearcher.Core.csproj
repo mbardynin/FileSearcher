@@ -67,6 +67,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,17 +76,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\FileSearchManager.cs" />
-    <Compile Include="Sources\FileSearchSettings.cs" />
-    <Compile Include="Sources\Filtering\AttributeSpecification.cs" />
-    <Compile Include="Sources\Filtering\DateTimeSpecification.cs" />
-    <Compile Include="Sources\Filtering\SizeSpecification.cs" />
-    <Compile Include="Sources\IFileSearcher.cs" />
+    <Compile Include="Sources\Controller\IController.cs" />
+    <Compile Include="Sources\Filters\Abstract\AbstractControlFilter.cs" />
+    <Compile Include="Sources\Filters\Abstract\AbstractFilter.cs" />
+    <Compile Include="Sources\Filters\Abstract\AbstractListFilter.cs" />
+    <Compile Include="Sources\Filters\IFilter.cs" />
+    <Compile Include="Sources\Filters\Impl\NumbersFilter.cs" />
+    <Compile Include="Sources\Model\FileSearchManager.cs" />
+    <Compile Include="Sources\Model\FileSearchSettings.cs" />
+    <Compile Include="Sources\Model\Specifications\AttributeSpecification.cs" />
+    <Compile Include="Sources\Model\Specifications\DateTimeSpecification.cs" />
+    <Compile Include="Sources\Model\Specifications\SizeSpecification.cs" />
+    <Compile Include="Sources\Model\IFileSearcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sources\FileWrapper\FileInfoWrapper.cs" />
+    <Compile Include="Sources\Model\FileWrapper\FileInfoWrapper.cs" />
+    <Compile Include="Sources\View\Controls\BaseSearchFilterView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sources\View\Controls\BaseSearchFilterView.Designer.cs">
+      <DependentUpon>BaseSearchFilterView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Windows.Forms.CheckBox.datasource" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="InstallationDummyFile.txt" />
@@ -94,6 +109,20 @@
       <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
       <Name>FileSearcher.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.GUI.Controls\FileSearcher.GUI.Controls.csproj">
+      <Project>{a8894299-256d-4ce6-bdce-1b7c810e0a39}</Project>
+      <Name>FileSearcher.GUI.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.GUI\FileSearcher.GUI.csproj">
+      <Project>{55196594-C389-4283-AFA6-C79809F2A9B1}</Project>
+      <Name>FileSearcher.GUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Sources\View\Controls\BaseSearchFilterView.resx">
+      <DependentUpon>BaseSearchFilterView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

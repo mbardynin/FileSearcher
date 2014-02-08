@@ -1,6 +1,6 @@
 ﻿namespace FileSearcher.GUI
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -90,7 +90,7 @@
 			this.btnUpdatePluginsList.UseVisualStyleBackColor = true;
 			this.btnUpdatePluginsList.Click += new System.EventHandler(this.btnUpdatePluginsList_Click);
 			// 
-			// Form1
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,8 +101,8 @@
 			this.Controls.Add(this.btnUpdatePluginsList);
 			this.Controls.Add(this.btnSetPlugin);
 			this.Controls.Add(this.lbxPlugIns);
-			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Name = "MainForm";
+			this.Text = "MainForm";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

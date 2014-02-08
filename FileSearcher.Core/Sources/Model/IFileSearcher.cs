@@ -6,9 +6,9 @@ using System.Diagnostics.Contracts;
 using System.IO;
 
 using FileSearcher.Common;
-using FileSearcher.Core.FileWrapper;
+using FileSearcher.Core.Model.FileWrapper;
 
-namespace FileSearcher.Core
+namespace FileSearcher.Core.Model
 {
 	public interface IFileSearcher
 	{

@@ -10,9 +10,9 @@ using FileSearcher.Common;
 
 namespace FileSearcher.GUI
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form, IMainView
 	{
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 
@@ -56,6 +56,17 @@ namespace FileSearcher.GUI
 		{
 			catalog.Refresh();
 			lbxPlugIns.DataSource = plugInControls;
+		}
+
+		public void AddFilters( params Control[] filterControls )
+		{
+			throw new NotImplementedException();
+		}
+
+		public event Action StartSearch;
+		public void DisplaySearchResult( IEnumerable<IFileInfo> fileInfoList )
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

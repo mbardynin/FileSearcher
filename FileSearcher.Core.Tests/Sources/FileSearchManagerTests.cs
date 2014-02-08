@@ -3,7 +3,8 @@
 using System.Linq;
 
 using FileSearcher.Common;
-using FileSearcher.Common.Filtering;
+using FileSearcher.Common.Specifications;
+using FileSearcher.Core.Model;
 
 using Moq;
 
@@ -40,7 +41,7 @@ namespace FileSearcher.Core.Tests
 			var manager = new FileSearchManager( _fileSearcherMock.Object, 100 );
 
 			// Act
-			var result = manager.Search( new FileSearchSettings(), new[] {_filterMock.Object} ).ToList();
+			var result = manager.Search( new FileSearchSettings(), _filterMock.Object ).ToList();
 
 			// Assert
 			_mockContainer.VerifyAll();
@@ -58,7 +59,7 @@ namespace FileSearcher.Core.Tests
 			var manager = new FileSearchManager( _fileSearcherMock.Object, 100 );
 
 			// Act
-			var result = manager.Search( new FileSearchSettings(), new[] {_filterMock.Object} ).ToList();
+			var result = manager.Search( new FileSearchSettings(), _filterMock.Object ).ToList();
 
 			// Assert
 			Assert.AreEqual( 0, result.Count );
@@ -77,7 +78,7 @@ namespace FileSearcher.Core.Tests
 			var manager = new FileSearchManager( _fileSearcherMock.Object, 1 );
 
 			// Act
-			var result = manager.Search( new FileSearchSettings(), new[] {_filterMock.Object} ).ToList();
+			var result = manager.Search( new FileSearchSettings(), _filterMock.Object ).ToList();
 
 			// Assert
 			Assert.AreEqual( 1, result.Count );

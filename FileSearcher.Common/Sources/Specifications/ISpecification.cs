@@ -2,7 +2,7 @@
 
 using System.Diagnostics.Contracts;
 
-namespace FileSearcher.Common.Filtering
+namespace FileSearcher.Common.Specifications
 {
 	[ ContractClass( typeof( SpecificationContract ) ) ]
 	public interface ISpecification

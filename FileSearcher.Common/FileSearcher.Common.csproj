@@ -75,9 +75,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\Filtering\NullSpecification.cs" />
-    <Compile Include="Sources\Filtering\SpecificationContract.cs" />
-    <Compile Include="Sources\Filtering\ISpecification.cs" />
+    <Compile Include="Sources\IMainView.cs" />
+    <Compile Include="Sources\ISearchFilterView.cs" />
+    <Compile Include="Sources\Specifications\AndSpecification.cs" />
+    <Compile Include="Sources\Specifications\ExtensionMethods.cs" />
+    <Compile Include="Sources\Specifications\NullSpecification.cs" />
+    <Compile Include="Sources\Specifications\SpecificationContract.cs" />
+    <Compile Include="Sources\Specifications\ISpecification.cs" />
     <Compile Include="Sources\IFileInfo.cs" />
     <Compile Include="Sources\SearchControl.cs">
       <SubType>UserControl</SubType>
