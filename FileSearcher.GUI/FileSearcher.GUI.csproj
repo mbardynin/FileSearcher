@@ -45,21 +45,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\MainForm.cs">
+    <Compile Include="Sources\Controller\IController.cs" />
+    <Compile Include="Sources\Filters\Abstract\AbstractControlFilter.cs" />
+    <Compile Include="Sources\Filters\Abstract\AbstractFilter.cs" />
+    <Compile Include="Sources\Filters\Abstract\AbstractListFilter.cs" />
+    <Compile Include="Sources\Filters\IFilter.cs" />
+    <Compile Include="Sources\Filters\Impl\NumbersFilter.cs" />
+    <Compile Include="Sources\View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\MainForm.Designer.cs">
+    <Compile Include="Sources\View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\MainView.cs">
+    <Compile Include="Sources\View\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\MainView.Designer.cs">
+    <Compile Include="Sources\View\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Sources\MainForm.resx">
+    <EmbeddedResource Include="Sources\View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -71,7 +77,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sources\MainView.resx">
+    <EmbeddedResource Include="Sources\View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -91,6 +97,14 @@
     <ProjectReference Include="..\FileSearcher.Common\FileSearcher.Common.csproj">
       <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
       <Name>FileSearcher.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.Core\FileSearcher.Core.csproj">
+      <Project>{f58fb131-5ca6-4baf-851e-4792db2ea67f}</Project>
+      <Name>FileSearcher.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.GUI.Controls\FileSearcher.GUI.Controls.csproj">
+      <Project>{a8894299-256d-4ce6-bdce-1b7c810e0a39}</Project>
+      <Name>FileSearcher.GUI.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

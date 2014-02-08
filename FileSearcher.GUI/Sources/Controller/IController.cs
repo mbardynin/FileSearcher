@@ -1,10 +1,11 @@
 ﻿// Mike Bardynin [mikebardynin@gmail.com]
 
-using FileSearcher.Core.Filters;
+using FileSearcher.Common;
 using FileSearcher.Core.Model;
-using FileSearcher.GUI;
+using FileSearcher.GUI.Filters;
+using FileSearcher.GUI.View;
 
-namespace FileSearcher.Core.Controller
+namespace FileSearcher.GUI.Controller
 {
 	public interface IController
 	{
@@ -13,11 +14,11 @@ namespace FileSearcher.Core.Controller
 
 	class MainController : IController
 	{
-		private FileSearchManager _model;
-		private MainForm _view;
+		private IFileSearchManager _model;
+		private IMainView _view;
 
-		public MainController( FileSearchManager model,
-			MainForm view )
+		public MainController(IFileSearchManager model,
+			IMainView view )
 		{
 			_model = model;
 			_view = view;

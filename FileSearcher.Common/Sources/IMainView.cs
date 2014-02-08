@@ -11,7 +11,7 @@ namespace FileSearcher.Common
 		void AddFilters( params Control[] filterControls );
 		//void SetPluginFilter( SearchControl filter );
 		//event Action RefreshPluginList;
-		event Action StartSearch;
+		event EventHandler StartSearch;
 		void DisplaySearchResult( IEnumerable<IFileInfo> fileInfoList );
 	}
 }

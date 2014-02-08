@@ -1,8 +1,6 @@
-using System;
-
 using FileSearcher.Common.Specifications;
 
-namespace FileSearcher.Core.Filters
+namespace FileSearcher.GUI.Filters
 {
     public interface IFilter
     {

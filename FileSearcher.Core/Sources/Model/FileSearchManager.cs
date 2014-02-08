@@ -8,7 +8,7 @@ using FileSearcher.Common.Specifications;
 
 namespace FileSearcher.Core.Model
 {
-	public class FileSearchManager
+	public class FileSearchManager : IFileSearchManager
 	{
 		private readonly IFileSearcher _fileSearcher;
 		private readonly int _maxFilesInSearchResults;

@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 using FileSearcher.Common;
 
-namespace FileSearcher.Core.Sources.View.Controls
+namespace FileSearcher.GUI.Controls.Sources
 {
 	public partial class FileSizeSearchFilterView : UserControl, ISearchFilterView
 	{

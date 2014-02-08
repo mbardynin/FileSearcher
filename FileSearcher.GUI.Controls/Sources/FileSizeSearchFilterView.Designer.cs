@@ -1,4 +1,4 @@
-﻿namespace FileSearcher.Core.Sources.View.Controls
+﻿namespace FileSearcher.GUI.Controls.Sources
 {
 	partial class FileSizeSearchFilterView
 	{

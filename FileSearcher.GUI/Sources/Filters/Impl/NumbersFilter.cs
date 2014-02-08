@@ -1,11 +1,11 @@
 // Mike Bardynin [mikebardynin@gmail.com]
 
 using FileSearcher.Common.Specifications;
-using FileSearcher.Core.Filters.Abstract;
 using FileSearcher.Core.Model.Specifications;
-using FileSearcher.Core.Sources.View.Controls;
+using FileSearcher.GUI.Controls.Sources;
+using FileSearcher.GUI.Filters.Abstract;
 
-namespace FileSearcher.Core.Filters.Impl
+namespace FileSearcher.GUI.Filters.Impl
 {
 	internal sealed class NumbersFilter : AbstractControlFilter
 	{

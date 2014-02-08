@@ -1,10 +1,9 @@
 using System;
 using System.Diagnostics.Contracts;
-using System.Windows.Forms;
 
 using FileSearcher.Common;
 
-namespace FileSearcher.Core.Filters.Abstract
+namespace FileSearcher.GUI.Filters.Abstract
 {
     public abstract class AbstractControlFilter : AbstractFilter
     {

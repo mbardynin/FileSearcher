@@ -1,4 +1,4 @@
-﻿namespace FileSearcher.GUI
+﻿namespace FileSearcher.GUI.View
 {
 	partial class MainForm
 	{

@@ -3,7 +3,7 @@
 using System;
 using System.Windows.Forms;
 
-using FileSearcher.GUI.Sources;
+using FileSearcher.GUI.View;
 
 namespace FileSearcher.GUI
 {
