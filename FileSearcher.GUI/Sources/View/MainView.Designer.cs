@@ -28,31 +28,34 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.statusStrip = new System.Windows.Forms.StatusStrip();
 			this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
 			this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
 			this.lblWarnings = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.lvSearchResults = new System.Windows.Forms.ListView();
-			this.txtPath = new System.Windows.Forms.TextBox();
-			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.btnSelectPlugin = new System.Windows.Forms.Button();
+			this.txtPluginInfo = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.chbIncludeSubDirectories = new System.Windows.Forms.CheckBox();
 			this.btnBrowseToDirectory = new System.Windows.Forms.Button();
-			this.chbSearchInSubdirectories = new System.Windows.Forms.CheckBox();
-			this.btnSearch = new System.Windows.Forms.Button();
+			this.txtPath = new System.Windows.Forms.TextBox();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnClear = new System.Windows.Forms.Button();
 			this.btnStop = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.txtPluginInfo = new System.Windows.Forms.TextBox();
-			this.btnSelectPlugin = new System.Windows.Forms.Button();
+			this.btnSearch = new System.Windows.Forms.Button();
 			this.gbxFilters = new System.Windows.Forms.GroupBox();
 			this.flpFilters = new System.Windows.Forms.FlowLayoutPanel();
+			this.lbxSearchResults = new System.Windows.Forms.ListBox();
+			this.iFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.statusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.gbxFilters.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.iFileInfoBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// statusStrip
@@ -96,10 +99,10 @@
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.lvSearchResults, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.gbxFilters, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.lbxSearchResults, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -110,37 +113,12 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(854, 592);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
-			// lvSearchResults
-			// 
-			this.lvSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvSearchResults.Location = new System.Drawing.Point(303, 3);
-			this.lvSearchResults.Name = "lvSearchResults";
-			this.tableLayoutPanel1.SetRowSpan(this.lvSearchResults, 2);
-			this.lvSearchResults.Size = new System.Drawing.Size(548, 551);
-			this.lvSearchResults.TabIndex = 0;
-			this.lvSearchResults.UseCompatibleStateImageBehavior = false;
-			this.lvSearchResults.View = System.Windows.Forms.View.List;
-			// 
-			// txtPath
-			// 
-			this.txtPath.Location = new System.Drawing.Point(6, 19);
-			this.txtPath.Name = "txtPath";
-			this.txtPath.ReadOnly = true;
-			this.txtPath.Size = new System.Drawing.Size(256, 20);
-			this.txtPath.TabIndex = 1;
-			// 
-			// folderBrowserDialog1
-			// 
-			this.folderBrowserDialog1.Description = "Select the folder in which will search files.";
-			this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
-			this.folderBrowserDialog1.ShowNewFolderButton = false;
-			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.btnSelectPlugin);
 			this.groupBox1.Controls.Add(this.txtPluginInfo);
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.chbSearchInSubdirectories);
+			this.groupBox1.Controls.Add(this.chbIncludeSubDirectories);
 			this.groupBox1.Controls.Add(this.btnBrowseToDirectory);
 			this.groupBox1.Controls.Add(this.txtPath);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,6 +129,42 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Main search settings";
 			// 
+			// btnSelectPlugin
+			// 
+			this.btnSelectPlugin.Location = new System.Drawing.Point(265, 69);
+			this.btnSelectPlugin.Name = "btnSelectPlugin";
+			this.btnSelectPlugin.Size = new System.Drawing.Size(26, 20);
+			this.btnSelectPlugin.TabIndex = 6;
+			this.btnSelectPlugin.Text = "...";
+			this.btnSelectPlugin.UseVisualStyleBackColor = true;
+			// 
+			// txtPluginInfo
+			// 
+			this.txtPluginInfo.Location = new System.Drawing.Point(49, 69);
+			this.txtPluginInfo.Name = "txtPluginInfo";
+			this.txtPluginInfo.ReadOnly = true;
+			this.txtPluginInfo.Size = new System.Drawing.Size(213, 20);
+			this.txtPluginInfo.TabIndex = 5;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(10, 70);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(39, 13);
+			this.label1.TabIndex = 4;
+			this.label1.Text = "Plugin:";
+			// 
+			// chbIncludeSubDirectories
+			// 
+			this.chbIncludeSubDirectories.AutoSize = true;
+			this.chbIncludeSubDirectories.Location = new System.Drawing.Point(10, 46);
+			this.chbIncludeSubDirectories.Name = "chbIncludeSubDirectories";
+			this.chbIncludeSubDirectories.Size = new System.Drawing.Size(139, 17);
+			this.chbIncludeSubDirectories.TabIndex = 3;
+			this.chbIncludeSubDirectories.Text = "Search in subdirectories";
+			this.chbIncludeSubDirectories.UseVisualStyleBackColor = true;
+			// 
 			// btnBrowseToDirectory
 			// 
 			this.btnBrowseToDirectory.Location = new System.Drawing.Point(265, 19);
@@ -160,24 +174,13 @@
 			this.btnBrowseToDirectory.Text = "...";
 			this.btnBrowseToDirectory.UseVisualStyleBackColor = true;
 			// 
-			// chbSearchInSubdirectories
+			// txtPath
 			// 
-			this.chbSearchInSubdirectories.AutoSize = true;
-			this.chbSearchInSubdirectories.Location = new System.Drawing.Point(10, 46);
-			this.chbSearchInSubdirectories.Name = "chbSearchInSubdirectories";
-			this.chbSearchInSubdirectories.Size = new System.Drawing.Size(139, 17);
-			this.chbSearchInSubdirectories.TabIndex = 3;
-			this.chbSearchInSubdirectories.Text = "Search in subdirectories";
-			this.chbSearchInSubdirectories.UseVisualStyleBackColor = true;
-			// 
-			// btnSearch
-			// 
-			this.btnSearch.Location = new System.Drawing.Point(308, 3);
-			this.btnSearch.Name = "btnSearch";
-			this.btnSearch.Size = new System.Drawing.Size(75, 23);
-			this.btnSearch.TabIndex = 3;
-			this.btnSearch.Text = "Search";
-			this.btnSearch.UseVisualStyleBackColor = true;
+			this.txtPath.Location = new System.Drawing.Point(6, 19);
+			this.txtPath.Name = "txtPath";
+			this.txtPath.ReadOnly = true;
+			this.txtPath.Size = new System.Drawing.Size(256, 20);
+			this.txtPath.TabIndex = 1;
 			// 
 			// flowLayoutPanel1
 			// 
@@ -209,41 +212,24 @@
 			this.btnStop.Text = "Stop";
 			this.btnStop.UseVisualStyleBackColor = true;
 			// 
-			// label1
+			// btnSearch
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(10, 70);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(39, 13);
-			this.label1.TabIndex = 4;
-			this.label1.Text = "Plugin:";
-			// 
-			// txtPluginInfo
-			// 
-			this.txtPluginInfo.Location = new System.Drawing.Point(49, 69);
-			this.txtPluginInfo.Name = "txtPluginInfo";
-			this.txtPluginInfo.ReadOnly = true;
-			this.txtPluginInfo.Size = new System.Drawing.Size(213, 20);
-			this.txtPluginInfo.TabIndex = 5;
-			// 
-			// btnSelectPlugin
-			// 
-			this.btnSelectPlugin.Location = new System.Drawing.Point(265, 69);
-			this.btnSelectPlugin.Name = "btnSelectPlugin";
-			this.btnSelectPlugin.Size = new System.Drawing.Size(26, 20);
-			this.btnSelectPlugin.TabIndex = 6;
-			this.btnSelectPlugin.Text = "...";
-			this.btnSelectPlugin.UseVisualStyleBackColor = true;
+			this.btnSearch.Location = new System.Drawing.Point(308, 3);
+			this.btnSearch.Name = "btnSearch";
+			this.btnSearch.Size = new System.Drawing.Size(75, 23);
+			this.btnSearch.TabIndex = 3;
+			this.btnSearch.Text = "Search";
+			this.btnSearch.UseVisualStyleBackColor = true;
 			// 
 			// gbxFilters
 			// 
 			this.gbxFilters.AutoSize = true;
 			this.gbxFilters.Controls.Add(this.flpFilters);
-			this.gbxFilters.Dock = System.Windows.Forms.DockStyle.Top;
+			this.gbxFilters.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbxFilters.Location = new System.Drawing.Point(3, 110);
 			this.gbxFilters.Name = "gbxFilters";
 			this.tableLayoutPanel1.SetRowSpan(this.gbxFilters, 2);
-			this.gbxFilters.Size = new System.Drawing.Size(294, 19);
+			this.gbxFilters.Size = new System.Drawing.Size(294, 479);
 			this.gbxFilters.TabIndex = 5;
 			this.gbxFilters.TabStop = false;
 			this.gbxFilters.Text = "Filters";
@@ -254,8 +240,31 @@
 			this.flpFilters.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flpFilters.Location = new System.Drawing.Point(3, 16);
 			this.flpFilters.Name = "flpFilters";
-			this.flpFilters.Size = new System.Drawing.Size(288, 0);
+			this.flpFilters.Size = new System.Drawing.Size(288, 460);
 			this.flpFilters.TabIndex = 0;
+			// 
+			// lbxSearchResults
+			// 
+			this.lbxSearchResults.DataSource = this.iFileInfoBindingSource;
+			this.lbxSearchResults.DisplayMember = "Name";
+			this.lbxSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lbxSearchResults.FormattingEnabled = true;
+			this.lbxSearchResults.Location = new System.Drawing.Point(303, 3);
+			this.lbxSearchResults.MultiColumn = true;
+			this.lbxSearchResults.Name = "lbxSearchResults";
+			this.tableLayoutPanel1.SetRowSpan(this.lbxSearchResults, 2);
+			this.lbxSearchResults.Size = new System.Drawing.Size(548, 551);
+			this.lbxSearchResults.TabIndex = 6;
+			// 
+			// iFileInfoBindingSource
+			// 
+			this.iFileInfoBindingSource.DataSource = typeof(FileSearcher.Common.Model.IFileInfo);
+			// 
+			// folderBrowserDialog1
+			// 
+			this.folderBrowserDialog1.Description = "Select the folder in which will search files.";
+			this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
+			this.folderBrowserDialog1.ShowNewFolderButton = false;
 			// 
 			// MainView
 			// 
@@ -275,6 +284,7 @@
 			this.groupBox1.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.gbxFilters.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.iFileInfoBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -287,9 +297,8 @@
 		private System.Windows.Forms.ToolStripStatusLabel lblStatus;
 		private System.Windows.Forms.ToolStripStatusLabel lblWarnings;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.ListView lvSearchResults;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.CheckBox chbSearchInSubdirectories;
+		private System.Windows.Forms.CheckBox chbIncludeSubDirectories;
 		private System.Windows.Forms.Button btnBrowseToDirectory;
 		private System.Windows.Forms.TextBox txtPath;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -302,6 +311,8 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.GroupBox gbxFilters;
 		private System.Windows.Forms.FlowLayoutPanel flpFilters;
+		private System.Windows.Forms.ListBox lbxSearchResults;
+		private System.Windows.Forms.BindingSource iFileInfoBindingSource;
 
 	}
 }

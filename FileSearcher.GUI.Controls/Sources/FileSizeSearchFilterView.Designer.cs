@@ -31,14 +31,14 @@
 			this.components = new System.ComponentModel.Container();
 			this.chbEnabled = new System.Windows.Forms.CheckBox();
 			this.baseFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-			this.bsEnabled = new System.Windows.Forms.BindingSource(this.components);
 			this.label1 = new System.Windows.Forms.Label();
 			this.nudMinSize = new System.Windows.Forms.NumericUpDown();
+			this.bsEnabled = new System.Windows.Forms.BindingSource(this.components);
 			this.label2 = new System.Windows.Forms.Label();
 			this.nudMaxSize = new System.Windows.Forms.NumericUpDown();
 			this.baseFlowLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudMinSize)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudMaxSize)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -64,12 +64,8 @@
 			this.baseFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.baseFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
 			this.baseFlowLayoutPanel.Name = "baseFlowLayoutPanel";
-			this.baseFlowLayoutPanel.Size = new System.Drawing.Size(270, 25);
+			this.baseFlowLayoutPanel.Size = new System.Drawing.Size(290, 25);
 			this.baseFlowLayoutPanel.TabIndex = 1;
-			// 
-			// bsEnabled
-			// 
-			this.bsEnabled.DataSource = typeof(System.Windows.Forms.CheckBox);
 			// 
 			// label1
 			// 
@@ -86,14 +82,18 @@
 			this.nudMinSize.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.nudMinSize.Location = new System.Drawing.Point(110, 3);
 			this.nudMinSize.Name = "nudMinSize";
-			this.nudMinSize.Size = new System.Drawing.Size(68, 20);
+			this.nudMinSize.Size = new System.Drawing.Size(76, 20);
 			this.nudMinSize.TabIndex = 2;
 			this.nudMinSize.ThousandsSeparator = true;
+			// 
+			// bsEnabled
+			// 
+			this.bsEnabled.DataSource = typeof(System.Windows.Forms.CheckBox);
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(184, 4);
+			this.label2.Location = new System.Drawing.Point(192, 4);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(10, 13);
@@ -104,9 +104,9 @@
 			// 
 			this.nudMaxSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.nudMaxSize.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.nudMaxSize.Location = new System.Drawing.Point(200, 3);
+			this.nudMaxSize.Location = new System.Drawing.Point(208, 3);
 			this.nudMaxSize.Name = "nudMaxSize";
-			this.nudMaxSize.Size = new System.Drawing.Size(67, 20);
+			this.nudMaxSize.Size = new System.Drawing.Size(76, 20);
 			this.nudMaxSize.TabIndex = 2;
 			this.nudMaxSize.ThousandsSeparator = true;
 			// 
@@ -115,14 +115,14 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.baseFlowLayoutPanel);
-			this.MaximumSize = new System.Drawing.Size(270, 25);
-			this.MinimumSize = new System.Drawing.Size(270, 25);
+			this.MaximumSize = new System.Drawing.Size(290, 25);
+			this.MinimumSize = new System.Drawing.Size(290, 25);
 			this.Name = "FileSizeSearchFilterView";
-			this.Size = new System.Drawing.Size(270, 25);
+			this.Size = new System.Drawing.Size(290, 25);
 			this.baseFlowLayoutPanel.ResumeLayout(false);
 			this.baseFlowLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudMinSize)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.nudMaxSize)).EndInit();
 			this.ResumeLayout(false);
 

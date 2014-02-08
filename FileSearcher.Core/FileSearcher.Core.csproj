@@ -76,14 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sources\Model\FileSearchManager.cs" />
-    <Compile Include="Sources\Model\FileSearchSettings.cs" />
-    <Compile Include="Sources\Model\IFileSearchManager.cs" />
     <Compile Include="Sources\Model\Specifications\AttributeSpecification.cs" />
     <Compile Include="Sources\Model\Specifications\DateTimeSpecification.cs" />
     <Compile Include="Sources\Model\Specifications\SizeSpecification.cs" />
-    <Compile Include="Sources\Model\IFileSearcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Model\FileWrapper\FileInfoWrapper.cs" />
+    <Compile Include="Sources\Model\SystemFileSearcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -75,15 +75,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\IMainView.cs" />
-    <Compile Include="Sources\ISearchFilterView.cs" />
-    <Compile Include="Sources\Specifications\AndSpecification.cs" />
-    <Compile Include="Sources\Specifications\ExtensionMethods.cs" />
-    <Compile Include="Sources\Specifications\NullSpecification.cs" />
-    <Compile Include="Sources\Specifications\SpecificationContract.cs" />
-    <Compile Include="Sources\Specifications\ISpecification.cs" />
-    <Compile Include="Sources\IFileInfo.cs" />
-    <Compile Include="Sources\SearchControl.cs">
+    <Compile Include="Sources\Controller\AbstractControlFilter.cs" />
+    <Compile Include="Sources\Controller\AbstractFilter.cs" />
+    <Compile Include="Sources\Controller\FiltersCollection.cs" />
+    <Compile Include="Sources\Controller\IFilter.cs" />
+    <Compile Include="Sources\Controller\NullFilter.cs" />
+    <Compile Include="Sources\View\IMainView.cs" />
+    <Compile Include="Sources\View\ISearchFilterView.cs" />
+    <Compile Include="Sources\Model\FileSearchSettings.cs" />
+    <Compile Include="Sources\Model\IFileSearcher.cs" />
+    <Compile Include="Sources\Model\IFileSearchManager.cs" />
+    <Compile Include="Sources\Model\Specifications\AndSpecification.cs" />
+    <Compile Include="Sources\Model\Specifications\ExtensionMethods.cs" />
+    <Compile Include="Sources\Model\Specifications\NullSpecification.cs" />
+    <Compile Include="Sources\Model\Specifications\SpecificationContract.cs" />
+    <Compile Include="Sources\Model\Specifications\ISpecification.cs" />
+    <Compile Include="Sources\Model\IFileInfo.cs" />
+    <Compile Include="Sources\View\SearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

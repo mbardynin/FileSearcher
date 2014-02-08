@@ -3,6 +3,8 @@
 using System;
 using System.Windows.Forms;
 
+using FileSearcher.GUI.Controller;
+using FileSearcher.GUI.Model;
 using FileSearcher.GUI.View;
 
 namespace FileSearcher.GUI
@@ -17,7 +19,12 @@ namespace FileSearcher.GUI
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault( false );
-			Application.Run( new MainView() );
+
+			var mainView = new MainView();
+			var model = new FileSearchManager( new SystemFileSearcher(), Properties.Settings.Default.MaxItemsInSearchResults );
+			var mainController = new MainController( model, mainView );
+
+			Application.Run( mainView );
 		}
 	}
 }

@@ -6,10 +6,9 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Security.AccessControl;
 
-using FileSearcher.Common;
 using FileSearcher.Common.Model;
 
-namespace FileSearcher.Core.Model.FileWrapper
+namespace FileSearcher.GUI.Model.FileWrapper
 {
 	public class FileInfoWrapper : IFileInfo
 	{

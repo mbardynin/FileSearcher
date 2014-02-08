@@ -7,6 +7,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
 
 using FileSearcher.Common;
+using FileSearcher.Common.View;
 
 namespace FileSearcher.GUI.View
 {

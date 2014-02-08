@@ -3,11 +3,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-using FileSearcher.Common;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.Core.Model
+namespace FileSearcher.GUI.Model
 {
 	public class FileSearchManager : IFileSearchManager
 	{

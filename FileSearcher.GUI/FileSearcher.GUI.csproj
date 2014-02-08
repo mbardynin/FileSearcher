@@ -46,11 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sources\Controller\IController.cs" />
-    <Compile Include="Sources\Filters\Abstract\AbstractControlFilter.cs" />
-    <Compile Include="Sources\Filters\Abstract\AbstractFilter.cs" />
-    <Compile Include="Sources\Filters\Abstract\AbstractListFilter.cs" />
-    <Compile Include="Sources\Filters\IFilter.cs" />
-    <Compile Include="Sources\Filters\Impl\NumbersFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\NumbersFilter.cs" />
+    <Compile Include="Sources\Model\FileSearchManager.cs" />
+    <Compile Include="Sources\Model\FileWrapper\FileInfoWrapper.cs" />
+    <Compile Include="Sources\Model\Specifications\AttributeSpecification.cs" />
+    <Compile Include="Sources\Model\Specifications\DateTimeSpecification.cs" />
+    <Compile Include="Sources\Model\Specifications\SizeSpecification.cs" />
+    <Compile Include="Sources\Model\SystemFileSearcher.cs" />
     <Compile Include="Sources\View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +82,7 @@
     <EmbeddedResource Include="Sources\View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FileSearcher.Common.Model.IFileInfo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -97,10 +100,6 @@
     <ProjectReference Include="..\FileSearcher.Common\FileSearcher.Common.csproj">
       <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
       <Name>FileSearcher.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FileSearcher.Core\FileSearcher.Core.csproj">
-      <Project>{f58fb131-5ca6-4baf-851e-4792db2ea67f}</Project>
-      <Name>FileSearcher.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\FileSearcher.GUI.Controls\FileSearcher.GUI.Controls.csproj">
       <Project>{a8894299-256d-4ce6-bdce-1b7c810e0a39}</Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A8894299-256D-4CE6-BDCE-1B7C810E0A39}</ProjectGuid>
+    <ProjectGuid>{5AFD0F98-7153-4D90-B702-D8D55816863E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileSearcher.GUI.Controls</RootNamespace>
-    <AssemblyName>FileSearcher.GUI.Controls</AssemblyName>
+    <RootNamespace>FileSearcher.Tests</RootNamespace>
+    <AssemblyName>FileSearcher.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,35 +30,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1312.1622\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\Model\Specifications\AttributesSpecificationTests.cs" />
+    <Compile Include="Sources\Model\Specifications\DateTimeFilterTests.cs" />
+    <Compile Include="Sources\Model\FileSearchManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sources\FileSizeSearchFilterView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Sources\FileSizeSearchFilterView.Designer.cs">
-      <DependentUpon>FileSizeSearchFilterView.cs</DependentUpon>
-    </Compile>
-    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+    <Compile Include="Sources\Model\Specifications\SizeFilterTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sources\FileSizeSearchFilterView.resx">
-      <DependentUpon>FileSizeSearchFilterView.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FileSearcher.Common\FileSearcher.Common.csproj">
-      <Project>{141C2CDD-7949-4AFD-B049-E6F1BE5B056D}</Project>
+      <Project>{141c2cdd-7949-4afd-b049-e6f1be5b056d}</Project>
       <Name>FileSearcher.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.GUI\FileSearcher.GUI.csproj">
+      <Project>{55196594-C389-4283-AFA6-C79809F2A9B1}</Project>
+      <Name>FileSearcher.GUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

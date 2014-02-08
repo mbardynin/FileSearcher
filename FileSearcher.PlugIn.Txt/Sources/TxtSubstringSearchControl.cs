@@ -3,6 +3,7 @@
 using System.ComponentModel.Composition;
 
 using FileSearcher.Common;
+using FileSearcher.Common.View;
 
 namespace FileSearcher.PlugIn.Txt
 {

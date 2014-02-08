@@ -4,6 +4,7 @@ using System;
 using System.Windows.Forms;
 
 using FileSearcher.Common;
+using FileSearcher.Common.View;
 
 namespace FileSearcher.GUI.Controls.Sources
 {

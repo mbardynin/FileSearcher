@@ -1,10 +1,9 @@
 using System.IO;
 
-using FileSearcher.Common;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.Core.Model.Specifications
+namespace FileSearcher.GUI.Model.Specifications
 {
 	public class AttributeSpecification : ISpecification
 	{
