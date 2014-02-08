@@ -80,9 +80,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\Controller\Filters\NumbersFilter.cs" />
     <Compile Include="Sources\Controller\Filters\DateTimeFilter.cs" />
     <Compile Include="Sources\Controller\IController.cs" />
-    <Compile Include="Sources\Controller\Filters\NumbersFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\AttributeFilter.cs" />
     <Compile Include="Sources\Model\FileSearchManager.cs" />
     <Compile Include="Sources\Model\FileWrapper\FileInfoWrapper.cs" />
     <Compile Include="Sources\Model\Specifications\AttributeSpecification.cs" />

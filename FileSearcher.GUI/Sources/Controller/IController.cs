@@ -1,6 +1,7 @@
 ﻿// Mike Bardynin [mikebardynin@gmail.com]
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -20,6 +21,9 @@ namespace FileSearcher.GUI.Controller
 	{
 		private readonly IFileSearchManager _model;
 		private readonly IMainView _view;
+
+		private IFilter BaseFilter { get; set; }
+		private IFilter PluginFilter { get; set; }
 
 		public MainController(
 			IFileSearchManager model,
@@ -45,7 +49,24 @@ namespace FileSearcher.GUI.Controller
 			AddDateTimeFilter(filtersCollection, info => info.LastAccessTime);
 			AddDateTimeFilter(filtersCollection, info => info.LastWriteTime);
 
+			AddAttributeFilter(filtersCollection, FileAttributes.ReadOnly);
+			AddAttributeFilter(filtersCollection, FileAttributes.Hidden);
+			AddAttributeFilter(filtersCollection, FileAttributes.Archive);
+			AddAttributeFilter(filtersCollection, FileAttributes.Compressed);
+			AddAttributeFilter(filtersCollection, FileAttributes.Encrypted);
+			AddAttributeFilter(filtersCollection, FileAttributes.System);
+			AddAttributeFilter(filtersCollection, FileAttributes.Temporary);
+
 			BaseFilter = filtersCollection;
+		}
+
+		private void AddAttributeFilter(
+			FiltersCollection filtersCollection,
+			FileAttributes attributes )
+		{
+			var attributeSearchFilterView = new CheckboxSearchFilterView();
+			_view.AddFilters( attributeSearchFilterView );
+			filtersCollection.AddHelper( new AttributeFilter( attributeSearchFilterView, attributes ) );
 		}
 
 		private void AddDateTimeFilter(
@@ -68,10 +89,5 @@ namespace FileSearcher.GUI.Controller
 				_view.Warning = string.Format( "Shown first {0} find files.", Settings.Default.MaxItemsInSearchResults );
 			_view.DisplaySearchResult( result );
 		}
-
-		public IFilter BaseFilter { get; set; }
-		public IFilter PluginFilter { get; set; }
 	}
-
-	public interface ISearchFilterController {}
 }
