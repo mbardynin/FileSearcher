@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\Filtering\NullSpecification.cs" />
     <Compile Include="Sources\Filtering\SpecificationContract.cs" />
     <Compile Include="Sources\Filtering\ISpecification.cs" />
     <Compile Include="Sources\IFileInfo.cs" />
