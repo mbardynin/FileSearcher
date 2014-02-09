@@ -17,14 +17,15 @@ namespace FileSearcher.PlugIn.Txt
 		public SubstringSpecification(
 			string substring, string fileExtension = "txt")
 		{
-			_substring = substring;
 			Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(substring));
+			Contract.Requires<ArgumentException>(!string.IsNullOrEmpty(fileExtension));
+			_substring = substring;
 			_fileExtension = fileExtension;
 		}
 
 		public bool IsSatisfiedBy( IFileInfo file )
 		{
-			int maxFileSize = 100*1024*1024;
+			int maxFileSize = 100 * 1024 * 1024;
 			if (file.Length > maxFileSize || file.Extension.ToLower() != _fileExtension)
 			{
 				return false;

@@ -12,9 +12,8 @@ using FileSearcher.GUI.Model.Specifications;
 
 namespace FileSearcher.GUI.Controller.Filters
 {
-	internal sealed class DateTimeFilter : AbstractControlFilter
+	internal sealed class DateTimeFilter : AbstractControlFilter<DateTimeSearchFilterView>
 	{
-		private readonly DateTimeSearchFilterView _view;
 		private readonly Func<IFileInfo, DateTime> _dateTimeGetter;
 
 		public DateTimeFilter(DateTimeSearchFilterView view,
@@ -22,16 +21,16 @@ namespace FileSearcher.GUI.Controller.Filters
 			: base( view )
 		{
 			Contract.Requires<ArgumentNullException>(dateTimeGetter != null);
-			_view = view;
+			
 			_dateTimeGetter = dateTimeGetter.Compile();
 			var expression = (MemberExpression)dateTimeGetter.Body;
 			string name = expression.Member.Name;
-			_view.Text = name;
+			View.Text = name;
 		}
 
 		protected override ISpecification DoGetFilteringSpecification()
 		{
-			return new DateTimeSpecification( _view.DateFrom, _view.DateTo, _dateTimeGetter );
+			return new DateTimeSpecification(View.DateFrom, View.DateTo, _dateTimeGetter);
 		}
 	}
 }

@@ -7,19 +7,16 @@ using FileSearcher.GUI.Model.Specifications;
 
 namespace FileSearcher.GUI.Controller.Filters
 {
-	internal sealed class NumbersFilter : AbstractControlFilter
+	internal sealed class NumbersFilter : AbstractControlFilter<FileSizeSearchFilterView>
 	{
-		private readonly FileSizeSearchFilterView _view;
-
 		public NumbersFilter( FileSizeSearchFilterView view )
 			: base( view )
 		{
-			_view = view;
 		}
 
 		protected override ISpecification DoGetFilteringSpecification()
 		{
-			return new SizeSpecification( _view.MinSize*1024, _view.MaxSize*1024 );
+			return new SizeSpecification(View.MinSize * 1024, View.MaxSize * 1024);
 		}
 	}
 }

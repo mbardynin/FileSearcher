@@ -9,23 +9,20 @@ using FileSearcher.GUI.Model.Specifications;
 
 namespace FileSearcher.GUI.Controller.Filters
 {
-	internal sealed class AttributeFilter : AbstractControlFilter
+	internal sealed class AttributeFilter : AbstractControlFilter<CheckboxSearchFilterView>
 	{
-		private readonly CheckboxSearchFilterView _view;
 		private readonly FileAttributes _attributes;
 
 		public AttributeFilter(CheckboxSearchFilterView view, FileAttributes attributes)
 			: base( view )
 		{
-			_view = view;
 			_attributes = attributes;
-
-			_view.Text = attributes.ToString();
+			View.Text = attributes.ToString();
 		}
 
 		protected override ISpecification DoGetFilteringSpecification()
 		{
-			return new AttributeSpecification( _attributes, _view.Checked );
+			return new AttributeSpecification( _attributes, View.Checked );
 		}
 	}
 }

@@ -75,8 +75,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\Controller\AbstractControlFilter.cs" />
+    <Compile Include="Sources\Controller\AbstractControlPluginFilter.cs" />
     <Compile Include="Sources\Controller\AbstractFilter.cs" />
+    <Compile Include="Sources\Controller\AbstractControlFilter.cs" />
     <Compile Include="Sources\Controller\FiltersCollection.cs" />
     <Compile Include="Sources\Controller\IFilter.cs" />
     <Compile Include="Sources\Controller\IMainController.cs" />
