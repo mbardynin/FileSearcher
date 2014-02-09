@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
+using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.View;
 
@@ -11,10 +12,13 @@ namespace FileSearcher.GUI.View
 {
 	public partial class MainView : Form, IMainView
 	{
+		private Control pluginControl;
+
 		public MainView()
 		{
 			InitializeComponent();
 			toolStripProgressBar1.MarqueeAnimationSpeed = 0;
+
 			btnSearch.Click += ( sender,
 				args ) => {
 				Warning = "";
@@ -23,10 +27,22 @@ namespace FileSearcher.GUI.View
 
 			btnClear.Click += ( sender,
 				args ) => ClearSearchResults();
+
+			btnSelectPlugin.Click += ( sender,
+				args) => {
+				SelectPlugin( sender, args );
+				UpdatePluginFilter();
+			};
+
+			btnStop.Click += (sender,
+				args) => StopSearch(sender, args);
 		}
 
 		//-------------------------------------------------------------------------------------[]
-		public event EventHandler StartSearch = delegate {};
+		public IMainController Controller { get; set; }
+		public event EventHandler StartSearch = delegate { };
+		public event EventHandler SelectPlugin = delegate { };
+		public event EventHandler StopSearch = delegate { };
 
 		//-------------------------------------------------------------------------------------[]
 		public string Warning
@@ -66,6 +82,7 @@ namespace FileSearcher.GUI.View
 			};
 		}
 
+		//-------------------------------------------------------------------------------------[]
 		private void ClearSearchResults()
 		{
 			iFileInfoBindingSource.Clear();
@@ -78,6 +95,17 @@ namespace FileSearcher.GUI.View
 			var dialogResult = folderBrowserDialog1.ShowDialog();
 			if( dialogResult == DialogResult.OK )
 				txtPath.Text = folderBrowserDialog1.SelectedPath;
+		}
+
+		private void UpdatePluginFilter()
+		{
+			if( Controller.PluginFilter!= null && Controller.PluginFilter.View != null ) {
+				if( pluginControl != null )
+					flpFilters.Controls.Remove( pluginControl );
+				pluginControl = Controller.PluginFilter.View;
+				txtPluginInfo.Text = Controller.PluginFilter.ToString();
+				AddFilters( pluginControl );
+			}
 		}
 	}
 }

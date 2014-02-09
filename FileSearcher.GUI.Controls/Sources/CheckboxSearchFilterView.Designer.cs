@@ -31,8 +31,8 @@
 			this.components = new System.ComponentModel.Container();
 			this.chbEnabled = new System.Windows.Forms.CheckBox();
 			this.baseFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-			this.bsEnabled = new System.Windows.Forms.BindingSource(this.components);
 			this.chbChosen = new System.Windows.Forms.CheckBox();
+			this.bsEnabled = new System.Windows.Forms.BindingSource(this.components);
 			this.baseFlowLayoutPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).BeginInit();
 			this.SuspendLayout();
@@ -59,10 +59,6 @@
 			this.baseFlowLayoutPanel.Size = new System.Drawing.Size(290, 25);
 			this.baseFlowLayoutPanel.TabIndex = 1;
 			// 
-			// bsEnabled
-			// 
-			this.bsEnabled.DataSource = typeof(System.Windows.Forms.CheckBox);
-			// 
 			// chbChosen
 			// 
 			this.chbChosen.AutoSize = true;
@@ -74,11 +70,16 @@
 			this.chbChosen.Text = "checkBox1";
 			this.chbChosen.UseVisualStyleBackColor = true;
 			// 
+			// bsEnabled
+			// 
+			this.bsEnabled.DataSource = typeof(System.Windows.Forms.CheckBox);
+			// 
 			// CheckboxSearchFilterView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.baseFlowLayoutPanel);
+			this.Margin = new System.Windows.Forms.Padding(0);
 			this.MaximumSize = new System.Drawing.Size(290, 25);
 			this.MinimumSize = new System.Drawing.Size(290, 25);
 			this.Name = "CheckboxSearchFilterView";

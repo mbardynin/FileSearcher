@@ -15,15 +15,13 @@ using FileSearcher.GUI.Properties;
 
 namespace FileSearcher.GUI.Controller
 {
-	public interface IController {}
-
-	internal class MainController : IController
+	internal class MainController : IMainController
 	{
 		private readonly IFileSearchManager _model;
 		private readonly IMainView _view;
 
 		private IFilter BaseFilter { get; set; }
-		private IFilter PluginFilter { get; set; }
+		public IPluginFilter PluginFilter { get; set; }
 
 		public MainController(
 			IFileSearchManager model,
@@ -32,7 +30,11 @@ namespace FileSearcher.GUI.Controller
 			_model = model;
 			_view = view;
 
+			_view.Controller = this;
+
 			_view.StartSearch += StartSearch;
+			_view.SelectPlugin += SelectPlugin;
+			_view.StopSearch += StopSearch;
 			InitializeBaseFilter();
 			PluginFilter = new NullFilter();
 		}
@@ -88,6 +90,19 @@ namespace FileSearcher.GUI.Controller
 			if( _model.ResultIsLimited )
 				_view.Warning = string.Format( "Shown first {0} find files.", Settings.Default.MaxItemsInSearchResults );
 			_view.DisplaySearchResult( result );
+		}
+
+		private void StopSearch(
+			object sender,
+			EventArgs e ) {}
+
+		private void SelectPlugin(
+			object sender,
+			EventArgs e )
+		{
+			IPluginFilter plugin = new NullFilter();
+			// получаем этот плагин
+			PluginFilter = plugin;
 		}
 	}
 }

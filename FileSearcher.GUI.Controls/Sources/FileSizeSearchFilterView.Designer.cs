@@ -125,6 +125,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.baseFlowLayoutPanel);
+			this.Margin = new System.Windows.Forms.Padding(0);
 			this.MaximumSize = new System.Drawing.Size(290, 25);
 			this.MinimumSize = new System.Drawing.Size(290, 25);
 			this.Name = "FileSizeSearchFilterView";
