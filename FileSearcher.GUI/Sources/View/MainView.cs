@@ -13,6 +13,9 @@ namespace FileSearcher.GUI.View
 	public partial class MainView : Form, IMainView
 	{
 		private Control _pluginControl;
+		private int CountFiles
+		{ set { lblFilesCount.Text = value.ToString(); }
+		}
 
 		public MainView()
 		{
@@ -22,6 +25,28 @@ namespace FileSearcher.GUI.View
 			Status = "";
 			CountFiles = 0;
 
+			InitHandlers();
+		}
+
+		//-------------------------------------------------------------------------------------[]
+		public IMainController Controller { get; set; }
+		public event EventHandler SelectPlugin = delegate {};
+		public event EventHandler StopSearch = delegate {};
+
+		//-------------------------------------------------------------------------------------[]
+		public string Warning { get { return lblWarnings.Text; } set { lblWarnings.Text = value; } }
+		public string Status { get { return lblStatus.Text; } set { lblStatus.Text = value; } }
+
+		//-------------------------------------------------------------------------------------[]
+		public void AddFilters( params Control[] filterControls )
+		{
+			flpFilters.Controls.AddRange( filterControls );
+		}
+
+
+		#region Routines
+		private void InitHandlers()
+		{
 			btnSearch.Click += ( sender,
 				args ) => {
 				OnStartSearch();
@@ -49,6 +74,14 @@ namespace FileSearcher.GUI.View
 			searchWorker.DoWork += OnSearchWorkerOnDoWork;
 		}
 
+		private void btnBrowseToDirectory_Click(
+			object sender,
+			EventArgs e )
+		{
+			var dialogResult = folderBrowserDialog1.ShowDialog();
+			if( dialogResult == DialogResult.OK )
+				txtPath.Text = folderBrowserDialog1.SelectedPath;
+		}
 		private void OnSearchWorkerOnDoWork(
 			object sender,
 			DoWorkEventArgs args )
@@ -59,45 +92,9 @@ namespace FileSearcher.GUI.View
 					args.Cancel = true;
 					return;
 				}
-				BeginInvoke(
-					new Action(
-						() => {
-							lvSearchResults.Items.Add( ConvertFileInfoToListViewItem( file ) );
-							if ((i & 1333) == 1333)
-								lvSearchResults.Refresh();
-						} ) );
+				AddItemToSearchResults( file, i );
 				i++;
 			}
-		}
-
-		private static ListViewItem ConvertFileInfoToListViewItem( IFileInfo file )
-		{
-			return
-				new ListViewItem(
-					new[] {
-						file.Name, ( file.Length/1024 ).ToString(), file.DirectoryName, file.Attributes.ToString(),
-						file.CreationTime.ToString(), file.LastAccessTime.ToString(), file.LastWriteTime.ToString()
-					} );
-		}
-
-		//-------------------------------------------------------------------------------------[]
-		public IMainController Controller { get; set; }
-		public event EventHandler SelectPlugin = delegate {};
-		public event EventHandler StopSearch = delegate {};
-
-		//-------------------------------------------------------------------------------------[]
-		public string Warning { get { return lblWarnings.Text; } set { lblWarnings.Text = value; } }
-		public string Status { get { return lblStatus.Text; } set { lblStatus.Text = value; } }
-		public int CountFiles
-		{
-			get { return int.Parse( lblFilesCount.Text ); }
-			set { lblFilesCount.Text = value.ToString(); }
-		}
-
-		//-------------------------------------------------------------------------------------[]
-		public void AddFilters( params Control[] filterControls )
-		{
-			flpFilters.Controls.AddRange( filterControls );
 		}
 
 		private FileSearchSettings GetMainSettings()
@@ -114,56 +111,49 @@ namespace FileSearcher.GUI.View
 		{
 			lvSearchResults.Items.Clear();
 		}
-
-		private void btnBrowseToDirectory_Click(
-			object sender,
-			EventArgs e )
-		{
-			var dialogResult = folderBrowserDialog1.ShowDialog();
-			if( dialogResult == DialogResult.OK )
-				txtPath.Text = folderBrowserDialog1.SelectedPath;
-		}
-
 		private void UpdatePluginFilter()
 		{
-			if( _pluginControl != null ) {
+			if (_pluginControl != null)
+			{
 				txtPluginInfo.Clear();
-				flpFilters.Controls.Remove( _pluginControl );
+				flpFilters.Controls.Remove(_pluginControl);
 			}
-			if( Controller.PluginFilter != null &&
-			    Controller.PluginFilter.UserControl != null ) {
+			if (Controller.PluginFilter != null &&
+				Controller.PluginFilter.UserControl != null)
+			{
 				_pluginControl = Controller.PluginFilter.UserControl;
 				txtPluginInfo.Text = Controller.PluginFilter.ToString();
-				AddFilters( _pluginControl );
+				AddFilters(_pluginControl);
 			}
 		}
 
 		private void OnStartSearch()
 		{
 			ClearSearchResults();
-			EnableControls( false );
+			EnableControls(false);
 			toolStripProgressBar1.MarqueeAnimationSpeed = 100;
 			Status = "Searching files in directory " + txtPath.Text;
 			Warning = "";
 		}
 
-		private void OnStopSearch( RunWorkerCompletedEventArgs args )
+		private void OnStopSearch(RunWorkerCompletedEventArgs args)
 		{
 			lvSearchResults.Refresh();
 			//dgvSearchResults.Refresh();
-			EnableControls( true );
+			EnableControls(true);
 			toolStripProgressBar1.MarqueeAnimationSpeed = 0;
 			Status = string.Empty;
-			if( args.Cancelled )
+			if (args.Cancelled)
 				Warning = "Searching was aborted";
-			if( args.Error != null ) {
+			if (args.Error != null)
+			{
 				Warning = "Exception! " + args.Error.Message;
-				MessageBox.Show( args.Error.ToString() );
+				MessageBox.Show(args.Error.ToString());
 			}
 			CountFiles = lvSearchResults.Items.Count;
 		}
 
-		private void EnableControls( bool enabled )
+		private void EnableControls(bool enabled)
 		{
 			btnStop.Enabled = !enabled;
 
@@ -172,5 +162,30 @@ namespace FileSearcher.GUI.View
 			gbxFilters.Enabled = enabled;
 			gbxMainSearchSettings.Enabled = enabled;
 		}
+
+		private void AddItemToSearchResults(
+			IFileInfo file,
+			int i)
+		{
+			BeginInvoke(
+				new Action(
+					() =>
+					{
+						lvSearchResults.Items.Add(ConvertFileInfoToListViewItem(file));
+						if ((i & 1333) == 1333)
+							lvSearchResults.Refresh();
+					}));
+		}
+
+		private static ListViewItem ConvertFileInfoToListViewItem(IFileInfo file)
+		{
+			return
+				new ListViewItem(
+					new[] {
+						file.Name, ( file.Length/1024 ).ToString(), file.DirectoryName, file.Attributes.ToString(),
+						file.CreationTime.ToString(), file.LastAccessTime.ToString(), file.LastWriteTime.ToString()
+					});
+		}
+		#endregion
 	}
 }
