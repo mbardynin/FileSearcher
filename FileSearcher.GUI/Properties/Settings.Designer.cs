@@ -25,7 +25,7 @@ namespace FileSearcher.GUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4000")]
         public int MaxItemsInSearchResults {
             get {
                 return ((int)(this["MaxItemsInSearchResults"]));
