@@ -46,10 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sources\Model\Specifications\AttributesSpecificationTests.cs" />
+    <Compile Include="Sources\Model\Specifications\XmlNodeValueSpecificationTests.cs" />
     <Compile Include="Sources\Model\Specifications\DateTimeFilterTests.cs" />
     <Compile Include="Sources\Model\FileSearchManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Model\Specifications\SizeFilterTests.cs" />
+    <Compile Include="Sources\Model\Specifications\SubstringSpecificationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -62,6 +64,14 @@
     <ProjectReference Include="..\FileSearcher.GUI\FileSearcher.GUI.csproj">
       <Project>{55196594-C389-4283-AFA6-C79809F2A9B1}</Project>
       <Name>FileSearcher.GUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.PlugIn.Txt\FileSearcher.PlugIn.Txt.csproj">
+      <Project>{7a9c026b-f3d8-4495-acbd-f0b3c9a275e8}</Project>
+      <Name>FileSearcher.PlugIn.Txt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FileSearcher.PlugIn.Xml\FileSearcher.PlugIn.Xml.csproj">
+      <Project>{7632993a-0fd1-4be2-84d7-6caa39d473f7}</Project>
+      <Name>FileSearcher.PlugIn.Xml</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
