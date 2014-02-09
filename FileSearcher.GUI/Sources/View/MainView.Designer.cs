@@ -38,7 +38,7 @@
 			this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
 			this.lblWarnings = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.gbxMainSearchSettings = new System.Windows.Forms.GroupBox();
 			this.btnSelectPlugin = new System.Windows.Forms.Button();
 			this.txtPluginInfo = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -52,6 +52,9 @@
 			this.gbxFilters = new System.Windows.Forms.GroupBox();
 			this.flpFilters = new System.Windows.Forms.FlowLayoutPanel();
 			this.dgvSearchResults = new System.Windows.Forms.DataGridView();
+			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+			this.searchWorker = new System.ComponentModel.BackgroundWorker();
+			this.lblFilesCount = new System.Windows.Forms.ToolStripStatusLabel();
 			this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.directoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,10 +64,9 @@
 			this.lastWriteTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.attributesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.iFileInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
 			this.statusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
+			this.gbxMainSearchSettings.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.gbxFilters.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
@@ -75,6 +77,7 @@
 			// 
 			this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1,
+            this.lblFilesCount,
             this.lblStatus,
             this.lblWarnings});
 			this.statusStrip.Location = new System.Drawing.Point(0, 592);
@@ -112,7 +115,7 @@
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.gbxMainSearchSettings, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.gbxFilters, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.dgvSearchResults, 1, 0);
@@ -126,21 +129,21 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(854, 592);
 			this.tableLayoutPanel1.TabIndex = 1;
 			// 
-			// groupBox1
+			// gbxMainSearchSettings
 			// 
-			this.groupBox1.Controls.Add(this.btnSelectPlugin);
-			this.groupBox1.Controls.Add(this.txtPluginInfo);
-			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.chbIncludeSubDirectories);
-			this.groupBox1.Controls.Add(this.btnBrowseToDirectory);
-			this.groupBox1.Controls.Add(this.txtPath);
-			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox1.Location = new System.Drawing.Point(3, 3);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(294, 101);
-			this.groupBox1.TabIndex = 2;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Main search settings";
+			this.gbxMainSearchSettings.Controls.Add(this.btnSelectPlugin);
+			this.gbxMainSearchSettings.Controls.Add(this.txtPluginInfo);
+			this.gbxMainSearchSettings.Controls.Add(this.label1);
+			this.gbxMainSearchSettings.Controls.Add(this.chbIncludeSubDirectories);
+			this.gbxMainSearchSettings.Controls.Add(this.btnBrowseToDirectory);
+			this.gbxMainSearchSettings.Controls.Add(this.txtPath);
+			this.gbxMainSearchSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbxMainSearchSettings.Location = new System.Drawing.Point(3, 3);
+			this.gbxMainSearchSettings.Name = "gbxMainSearchSettings";
+			this.gbxMainSearchSettings.Size = new System.Drawing.Size(294, 101);
+			this.gbxMainSearchSettings.TabIndex = 2;
+			this.gbxMainSearchSettings.TabStop = false;
+			this.gbxMainSearchSettings.Text = "Main search settings";
 			// 
 			// btnSelectPlugin
 			// 
@@ -195,7 +198,7 @@
 			this.txtPath.ReadOnly = true;
 			this.txtPath.Size = new System.Drawing.Size(256, 20);
 			this.txtPath.TabIndex = 1;
-			this.txtPath.Text = "E:\\backups";
+			this.txtPath.Text = "C:\\";
 			// 
 			// flowLayoutPanel1
 			// 
@@ -285,6 +288,23 @@
 			this.dgvSearchResults.Size = new System.Drawing.Size(548, 551);
 			this.dgvSearchResults.TabIndex = 6;
 			// 
+			// folderBrowserDialog1
+			// 
+			this.folderBrowserDialog1.Description = "Select the folder in which will search files.";
+			this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
+			this.folderBrowserDialog1.ShowNewFolderButton = false;
+			// 
+			// searchWorker
+			// 
+			this.searchWorker.WorkerReportsProgress = true;
+			this.searchWorker.WorkerSupportsCancellation = true;
+			// 
+			// lblFilesCount
+			// 
+			this.lblFilesCount.Name = "lblFilesCount";
+			this.lblFilesCount.Size = new System.Drawing.Size(63, 17);
+			this.lblFilesCount.Text = "CountFiles";
+			// 
 			// nameDataGridViewTextBoxColumn
 			// 
 			this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -372,12 +392,6 @@
 			// 
 			this.iFileInfoBindingSource.DataSource = typeof(FileSearcher.Common.Model.IFileInfo);
 			// 
-			// folderBrowserDialog1
-			// 
-			this.folderBrowserDialog1.Description = "Select the folder in which will search files.";
-			this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
-			this.folderBrowserDialog1.ShowNewFolderButton = false;
-			// 
 			// MainView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,8 +406,8 @@
 			this.statusStrip.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.gbxMainSearchSettings.ResumeLayout(false);
+			this.gbxMainSearchSettings.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.gbxFilters.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
@@ -410,7 +424,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel lblStatus;
 		private System.Windows.Forms.ToolStripStatusLabel lblWarnings;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox gbxMainSearchSettings;
 		private System.Windows.Forms.CheckBox chbIncludeSubDirectories;
 		private System.Windows.Forms.Button btnBrowseToDirectory;
 		private System.Windows.Forms.TextBox txtPath;
@@ -434,6 +448,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastAccessTimeDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastWriteTimeDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn attributesDataGridViewTextBoxColumn;
+		private System.ComponentModel.BackgroundWorker searchWorker;
+		private System.Windows.Forms.ToolStripStatusLabel lblFilesCount;
 
 	}
 }

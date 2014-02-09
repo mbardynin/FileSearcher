@@ -6,7 +6,7 @@ namespace FileSearcher.Common.Controller
 {
     public interface IFilter
     {
-        ISpecification GetFilteringSpecification();
+        ISpecification GetSpecification();
 
         bool Enabled { get; set; }
     }

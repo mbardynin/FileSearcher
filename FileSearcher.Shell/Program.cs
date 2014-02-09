@@ -32,9 +32,7 @@ namespace FileSearcher.Shell
 				ShadowCopyFiles = "true",
 				ShadowCopyDirectories = pluginPath
 			};
-
-			// Create a new AppDomain then create a new instance 
-			// of this application in the new AppDomain.            
+         
 			return AppDomain.CreateDomain( "Host_AppDomain", AppDomain.CurrentDomain.Evidence, setup );
 		}
 	}

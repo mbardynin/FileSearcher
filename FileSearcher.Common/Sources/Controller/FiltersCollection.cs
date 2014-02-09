@@ -23,7 +23,7 @@ namespace FileSearcher.Common.Controller
             return Helpers.Aggregate(
 				new NullSpecification() as ISpecification,
                 ( resultSpecification,
-                  filter ) => resultSpecification.And( filter.GetFilteringSpecification() ) );
+                  filter ) => resultSpecification.And( filter.GetSpecification() ) );
         }
     }
 }

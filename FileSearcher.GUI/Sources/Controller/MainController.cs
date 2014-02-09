@@ -1,6 +1,7 @@
 ﻿// Mike Bardynin [mikebardynin@gmail.com]
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -24,6 +25,15 @@ namespace FileSearcher.GUI.Controller
 
 		private IFilter BaseFilter { get; set; }
 		public IPluginFilter PluginFilter { get; set; }
+		public IEnumerable<IFileInfo> Search( FileSearchSettings fileSearchSettings )
+		{
+			if (PluginFilter != null && PluginFilter.FileExtension.IsNotEmpty())
+				fileSearchSettings.FileExtension = PluginFilter.FileExtension;
+
+			return _model.Search(
+				fileSearchSettings,
+				BaseFilter.GetSpecification().And(PluginFilter.GetSpecification()));
+		}
 
 		public MainController(
 			IFileSearchManager model,
@@ -35,7 +45,6 @@ namespace FileSearcher.GUI.Controller
 
 			_view.Controller = this;
 
-			_view.StartSearch += StartSearch;
 			_view.SelectPlugin += SelectPlugin;
 			_view.StopSearch += StopSearch;
 			InitializeBaseFilter();
@@ -83,25 +92,13 @@ namespace FileSearcher.GUI.Controller
 			filtersCollection.AddHelper( new DateTimeFilter( dateTimeSearchFilterView, dateTimeGetter ) );
 		}
 
-		private void StartSearch(
+		private void StopSearch(
 			object sender,
 			EventArgs e )
 		{
-			FileSearchSettings fileSearchSettings = _view.GetMainSettings();
-			if( PluginFilter != null && PluginFilter.FileExtension.IsNotEmpty() )
-				fileSearchSettings.FileExtension = PluginFilter.FileExtension;
-
-			var result = _model.Search(
-				fileSearchSettings,
-				BaseFilter.GetFilteringSpecification().And( PluginFilter.GetFilteringSpecification() ) ).ToList();
 			if( _model.ResultIsLimited )
 				_view.Warning = string.Format( "Shown first {0} find files.", Settings.Default.MaxItemsInSearchResults );
-			_view.DisplaySearchResult( result );
 		}
-
-		private void StopSearch(
-			object sender,
-			EventArgs e ) {}
 
 		private void SelectPlugin(
 			object sender,

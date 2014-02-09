@@ -5,7 +5,7 @@ using FileSearcher.Common.Model.Specifications;
 namespace FileSearcher.Common.Controller
 {
 	public class NullFilter : IPluginFilter {
-		public ISpecification GetFilteringSpecification()
+		public ISpecification GetSpecification()
 		{
 			return new NullSpecification();
 		}

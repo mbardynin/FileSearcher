@@ -4,7 +4,7 @@ namespace FileSearcher.Common.Controller
 {
     public abstract class AbstractFilter : IFilter
     {
-        public ISpecification GetFilteringSpecification()
+        public ISpecification GetSpecification()
         {
             return !Enabled
                        ? new NullSpecification()	
