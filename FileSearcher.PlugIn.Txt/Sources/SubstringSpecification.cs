@@ -3,6 +3,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
+using FileSearcher.Common;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
@@ -17,8 +18,8 @@ namespace FileSearcher.PlugIn.Txt
 			string substring,
 			string fileExtension )
 		{
-			Contract.Requires<ArgumentException>( !string.IsNullOrEmpty( substring ) );
-			Contract.Requires<ArgumentException>( !string.IsNullOrEmpty( fileExtension ) );
+			Contract.Requires<ArgumentException>( substring.IsNotEmpty() );
+			Contract.Requires<ArgumentException>(fileExtension.IsNotEmpty());
 			_substring = substring;
 			_fileExtension = fileExtension;
 		}

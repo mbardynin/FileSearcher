@@ -1,5 +1,6 @@
 // Mike Bardynin [mikebardynin@gmail.com]
 
+using FileSearcher.Common;
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model.Specifications;
 
@@ -12,6 +13,8 @@ namespace FileSearcher.PlugIn.Xml
 
 		protected override ISpecification DoGetFilteringSpecification()
 		{
+			if (View.NodeName.IsNullOrEmpty() || View.NodeValue.IsNullOrEmpty())
+				return new NullSpecification();
 			return new XmlNodeValueSpecification(View.NodeName, View.NodeValue, FileExtension);
 		}
 

@@ -82,6 +82,7 @@
     <Compile Include="Sources\Controller\IFilter.cs" />
     <Compile Include="Sources\Controller\IMainController.cs" />
     <Compile Include="Sources\Controller\NullFilter.cs" />
+    <Compile Include="Sources\StringExtensions.cs" />
     <Compile Include="Sources\View\IMainView.cs" />
     <Compile Include="Sources\View\ISearchFilterView.cs" />
     <Compile Include="Sources\Model\FileSearchSettings.cs" />

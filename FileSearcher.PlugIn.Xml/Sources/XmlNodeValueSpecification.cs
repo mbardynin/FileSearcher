@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.Xml;
 
+using FileSearcher.Common;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
@@ -20,9 +21,9 @@ namespace FileSearcher.PlugIn.Xml
 			string nodeValue,
 			string fileExtension )
 		{
-			Contract.Requires<ArgumentException>( !string.IsNullOrEmpty( nodeName ) );
-			Contract.Requires<ArgumentException>( !string.IsNullOrEmpty( fileExtension ) );
-			Contract.Requires<ArgumentException>( !string.IsNullOrEmpty( nodeValue ) );
+			Contract.Requires<ArgumentException>( nodeName.IsNotEmpty());
+			Contract.Requires<ArgumentException>( fileExtension.IsNotEmpty() );
+			Contract.Requires<ArgumentException>(nodeValue.IsNotEmpty());
 			_nodeName = nodeName;
 			_nodeValue = nodeValue;
 			_fileExtension = fileExtension;
