@@ -1,36 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Mike Bardynin [mikebardynin@gmail.com]
+
+using System;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FileSearcher.Shell
 {
-	static class Program
+	internal static class Program
 	{
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
-		[STAThread]
-		static void Main()
+		[ STAThread ]
+		private static void Main()
 		{
-			SetupShadowCopy();
-			domain.ExecuteAssembly(Path.Combine(Application.StartupPath, "FileSearcher.GUI.exe"));
+			CreateDomainWithShadowCopy().ExecuteAssembly( Path.Combine( Application.StartupPath, "FileSearcher.GUI.exe" ) );
 		}
-		internal static AppDomain domain;
-		private static void SetupShadowCopy()
+
+		private static AppDomain CreateDomainWithShadowCopy()
 		{
-			var cachePath = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "ShadowCopyCache");
+			var cachePath = Path.Combine( AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "ShadowCopyCache" );
 			var pluginPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-			if (!Directory.Exists(cachePath))
-				Directory.CreateDirectory(cachePath);
+			if( !Directory.Exists( cachePath ) )
+				Directory.CreateDirectory( cachePath );
 
-			if (!Directory.Exists(pluginPath))
-				Directory.CreateDirectory(pluginPath);
+			if( !Directory.Exists( pluginPath ) )
+				Directory.CreateDirectory( pluginPath );
 
-			var setup = new AppDomainSetup
-			{
+			var setup = new AppDomainSetup {
 				CachePath = cachePath,
 				ShadowCopyFiles = "true",
 				ShadowCopyDirectories = pluginPath
@@ -38,7 +35,7 @@ namespace FileSearcher.Shell
 
 			// Create a new AppDomain then create a new instance 
 			// of this application in the new AppDomain.            
-			domain = AppDomain.CreateDomain("Host_AppDomain", AppDomain.CurrentDomain.Evidence, setup);
+			return AppDomain.CreateDomain( "Host_AppDomain", AppDomain.CurrentDomain.Evidence, setup );
 		}
 	}
 }
