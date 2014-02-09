@@ -99,10 +99,10 @@ namespace FileSearcher.GUI.View
 
 		private void UpdatePluginFilter()
 		{
-			if( Controller.PluginFilter!= null && Controller.PluginFilter.View != null ) {
+			if( Controller.PluginFilter!= null && Controller.PluginFilter.UserControl != null ) {
 				if( pluginControl != null )
 					flpFilters.Controls.Remove( pluginControl );
-				pluginControl = Controller.PluginFilter.View;
+				pluginControl = Controller.PluginFilter.UserControl;
 				txtPluginInfo.Text = Controller.PluginFilter.ToString();
 				AddFilters( pluginControl );
 			}

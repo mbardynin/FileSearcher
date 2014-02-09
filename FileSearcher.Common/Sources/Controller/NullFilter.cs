@@ -11,6 +11,9 @@ namespace FileSearcher.Common.Controller
 		}
 
 		public bool Enabled { get; set; }
-		public Control View { get; private set; }
+		public Control UserControl { get; private set; }
+		public string Name { get; set; }
+		public string Description { get; set; }
+		public string FileExtension { get; set; }
 	}
 }

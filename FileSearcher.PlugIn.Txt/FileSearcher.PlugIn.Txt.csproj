@@ -42,18 +42,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\TxtSubstringSearchControl.cs">
+    <Compile Include="Sources\TxtSubstringSearchFilterView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Sources\TxtSubstringSearchControl.Designer.cs">
-      <DependentUpon>TxtSubstringSearchControl.cs</DependentUpon>
+    <Compile Include="Sources\TxtSubstringSearchFilterView.Designer.cs">
+      <DependentUpon>TxtSubstringSearchFilterView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sources\TxtSubstringSearchFilter.cs" />
+    <Compile Include="Sources\SubstringSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Sources\TxtSubstringSearchControl.resx">
-      <DependentUpon>TxtSubstringSearchControl.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\TxtSubstringSearchFilterView.resx">
+      <DependentUpon>TxtSubstringSearchFilterView.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

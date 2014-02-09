@@ -13,7 +13,12 @@ namespace FileSearcher.Common.Controller
 
 	public interface IPluginFilter : IFilter
 	{
-		Control View { get; }
+		Control UserControl { get; }
+
+		string Name { get; }
+		string Description { get; }
+		string FileExtension { get; }
+
 		string ToString();
 	}
 
