@@ -91,11 +91,11 @@
     <Compile Include="Sources\Model\Specifications\DateTimeSpecification.cs" />
     <Compile Include="Sources\Model\Specifications\SizeSpecification.cs" />
     <Compile Include="Sources\Model\SystemFileSearcher.cs" />
-    <Compile Include="Sources\View\MainForm.cs">
+    <Compile Include="Sources\View\SelectPluginView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\View\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Sources\View\SelectPluginView.Designer.cs">
+      <DependentUpon>SelectPluginView.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\View\MainView.cs">
       <SubType>Form</SubType>
@@ -105,8 +105,8 @@
     </Compile>
     <Compile Include="Sources\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Sources\View\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\View\SelectPluginView.resx">
+      <DependentUpon>SelectPluginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

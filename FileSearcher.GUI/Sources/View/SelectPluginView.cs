@@ -11,16 +11,13 @@ using FileSearcher.Common.View;
 
 namespace FileSearcher.GUI.View
 {
-	public partial class MainForm : Form
+	public partial class SelectPluginView : Form
 	{
-		public MainForm()
+		public SelectPluginView()
 		{
 			InitializeComponent();
 
 			LoadPlugins();
-
-			lbxPlugIns.DisplayMember = "PluginName";
-			lbxPlugIns.DataSource = plugInControls;
 		}
 
 		private CompositionContainer container;
@@ -36,27 +33,12 @@ namespace FileSearcher.GUI.View
 		[ ImportMany( typeof( SearchControl ), AllowRecomposition = true ) ] private readonly IEnumerable<SearchControl>
 			plugInControls = new List<SearchControl>();
 
-		private void btnSetPlugin_Click(
-			object sender,
-			EventArgs e )
-		{
-			panelForPlugin.Controls.Clear();
-			panelForPlugin.Controls.Add( lbxPlugIns.SelectedItem as SearchControl );
-		}
-
-		private void txtGetText1_Click(
-			object sender,
-			EventArgs e )
-		{
-			lblResult.Text = ( panelForPlugin.Controls[ 0 ] as SearchControl ).Text1;
-		}
 
 		private void btnUpdatePluginsList_Click(
 			object sender,
 			EventArgs e )
 		{
 			catalog.Refresh();
-			lbxPlugIns.DataSource = plugInControls;
 		}
 	}
 }
