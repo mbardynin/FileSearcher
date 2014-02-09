@@ -31,9 +31,7 @@ namespace FileSearcher.PlugIn.Xml
 
 		public bool IsSatisfiedBy( IFileInfo file )
 		{
-			var maxFileSize = 100*1024*1024;
-			if( file.Length > maxFileSize ||
-			    file.Extension.ToLower() != _fileExtension )
+			if( file.Extension.Replace(".", "").ToLower() != _fileExtension)
 				return false;
 
 			var lastElementName = "";

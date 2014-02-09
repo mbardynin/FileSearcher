@@ -68,6 +68,7 @@
 			// 
 			// lblText
 			// 
+			this.lblText.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.lblText.Location = new System.Drawing.Point(34, 4);
 			this.lblText.Margin = new System.Windows.Forms.Padding(0, 4, 3, 0);
 			this.lblText.Name = "lblText";
@@ -78,6 +79,7 @@
 			// 
 			// label1
 			// 
+			this.label1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.label1.Location = new System.Drawing.Point(128, 4);
 			this.label1.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
 			this.label1.Name = "label1";

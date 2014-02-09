@@ -1,16 +1,16 @@
 // Mike Bardynin [mikebardynin@gmail.com]
 
+using System.ComponentModel.Composition;
+
 using FileSearcher.Common;
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model.Specifications;
 
 namespace FileSearcher.PlugIn.Txt
 {
-	internal sealed class TxtSubstringSearchFilter : AbstractControlPluginFilter<TxtSubstringSearchFilterView>
+	[Export(typeof(IPluginFilter))]
+	public sealed class TxtSubstringSearchFilter : AbstractControlPluginFilter<TxtSubstringSearchFilterView>
 	{
-		public TxtSubstringSearchFilter( TxtSubstringSearchFilterView view )
-			: base( view ) {}
-
 		protected override ISpecification DoGetFilteringSpecification()
 		{
 			if (View.Substring.IsNullOrEmpty())

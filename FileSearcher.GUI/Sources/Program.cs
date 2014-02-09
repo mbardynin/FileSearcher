@@ -22,7 +22,8 @@ namespace FileSearcher.GUI
 
 			var mainView = new MainView();
 			var model = new FileSearchManager( new SystemFileSearcher(), Properties.Settings.Default.MaxItemsInSearchResults );
-			var mainController = new MainController( model, mainView );
+			var selectPluginController = new SelectPluginController();
+			var mainController = new MainController( model, mainView,  selectPluginController );
 
 			Application.Run( mainView );
 		}

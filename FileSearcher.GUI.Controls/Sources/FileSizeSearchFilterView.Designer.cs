@@ -70,6 +70,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
+			this.label1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.label1.Location = new System.Drawing.Point(37, 4);
 			this.label1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
 			this.label1.Name = "label1";
@@ -98,6 +99,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
+			this.label2.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
 			this.label2.Location = new System.Drawing.Point(192, 4);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 0);
 			this.label2.Name = "label2";

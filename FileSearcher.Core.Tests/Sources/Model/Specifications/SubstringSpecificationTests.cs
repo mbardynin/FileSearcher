@@ -39,13 +39,13 @@ namespace FileSearcher.Core.Tests.Filters
 			get
 			{
 				yield return
-					new TestCaseData("a", "txt", GetFileInfo("txt", "qeqwe"))
+					new TestCaseData("a", "txt", GetFileInfo(".txt", "qeqwe"))
 						.Returns(false).SetName("Don't contains substring.");
 				yield return
-					new TestCaseData("aq", "txt", GetFileInfo("txt", "qeaqwe"))
+					new TestCaseData("aq", "txt", GetFileInfo(".txt", "qeaqwe"))
 						.Returns(true).SetName("Contains substring.");
 				yield return
-					new TestCaseData("aq", "txt", GetFileInfo("xml", "qeaqwe"))
+					new TestCaseData("aq", "txt", GetFileInfo(".xml", "qeaqwe"))
 						.Returns(false).SetName("Wrong file extension.");
 				
 			}

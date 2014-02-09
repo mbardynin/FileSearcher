@@ -1,16 +1,16 @@
 // Mike Bardynin [mikebardynin@gmail.com]
 
+using System.ComponentModel.Composition;
+
 using FileSearcher.Common;
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model.Specifications;
 
 namespace FileSearcher.PlugIn.Xml
 {
-	internal sealed class XmlNodeValueSearchFilter : AbstractControlPluginFilter<XmlNodeValueSearchFilterView>
+	[Export(typeof(IPluginFilter))]
+	public sealed class XmlNodeValueSearchFilter : AbstractControlPluginFilter<XmlNodeValueSearchFilterView>
 	{
-		public XmlNodeValueSearchFilter( XmlNodeValueSearchFilterView view )
-			: base( view ) {}
-
 		protected override ISpecification DoGetFilteringSpecification()
 		{
 			if (View.NodeName.IsNullOrEmpty() || View.NodeValue.IsNullOrEmpty())

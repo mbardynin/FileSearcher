@@ -1,44 +1,24 @@
 ﻿// Mike Bardynin [mikebardynin@gmail.com]
 
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
 
-using FileSearcher.Common;
-using FileSearcher.Common.View;
+using FileSearcher.Common.Controller;
 
 namespace FileSearcher.GUI.View
 {
-	public partial class SelectPluginView : Form
+	public partial class SelectPluginView : Form, ISelectPluginView
 	{
 		public SelectPluginView()
 		{
 			InitializeComponent();
-
-			LoadPlugins();
 		}
 
-		private CompositionContainer container;
-		private DirectoryCatalog catalog;
-
-		private void LoadPlugins()
+		public void SetPluginsList( IEnumerable<IPluginFilter> plugins )
 		{
-			catalog = new DirectoryCatalog( "." );
-			container = new CompositionContainer( catalog );
-			container.ComposeParts( this );
+			iPluginFilterBindingSource.DataSource = plugins;
 		}
 
-		[ ImportMany( typeof( SearchControl ), AllowRecomposition = true ) ] private readonly IEnumerable<SearchControl>
-			plugInControls = new List<SearchControl>();
-
-
-		private void btnUpdatePluginsList_Click(
-			object sender,
-			EventArgs e )
-		{
-			catalog.Refresh();
-		}
+		public IPluginFilter SelectedPlugin { get { return iPluginFilterBindingSource.Current as IPluginFilter; } }
 	}
 }

@@ -31,15 +31,15 @@
 			this.components = new System.ComponentModel.Container();
 			this.chbEnabled = new System.Windows.Forms.CheckBox();
 			this.baseFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtNodeName = new System.Windows.Forms.TextBox();
 			this.bsEnabled = new System.Windows.Forms.BindingSource(this.components);
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtValue = new System.Windows.Forms.TextBox();
 			this.baseFlowLayoutPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// chbEnabled
@@ -64,6 +64,24 @@
 			this.baseFlowLayoutPanel.Size = new System.Drawing.Size(290, 50);
 			this.baseFlowLayoutPanel.TabIndex = 1;
 			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.txtNodeName, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.txtValue, 1, 1);
+			this.tableLayoutPanel1.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.bsEnabled, "Checked", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(37, 3);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 44);
+			this.tableLayoutPanel1.TabIndex = 3;
+			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -86,23 +104,6 @@
 			// bsEnabled
 			// 
 			this.bsEnabled.DataSource = typeof(System.Windows.Forms.CheckBox);
-			// 
-			// tableLayoutPanel1
-			// 
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.txtNodeName, 1, 0);
-			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.txtValue, 1, 1);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(37, 3);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 2;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(250, 44);
-			this.tableLayoutPanel1.TabIndex = 3;
 			// 
 			// label2
 			// 
@@ -134,9 +135,9 @@
 			this.Size = new System.Drawing.Size(290, 50);
 			this.baseFlowLayoutPanel.ResumeLayout(false);
 			this.baseFlowLayoutPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bsEnabled)).EndInit();
 			this.ResumeLayout(false);
 
 		}

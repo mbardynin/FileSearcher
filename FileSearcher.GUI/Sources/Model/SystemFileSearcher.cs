@@ -50,6 +50,10 @@ namespace FileSearcher.GUI.Model
 			{
 				return Enumerable.Empty<FileInfo>();
 			}
+			catch (DirectoryNotFoundException ex)
+			{
+				return Enumerable.Empty<FileInfo>();
+			}
 		}
 	}
 }

@@ -94,9 +94,6 @@
     <Compile Include="Sources\Model\Specifications\SpecificationContract.cs" />
     <Compile Include="Sources\Model\Specifications\ISpecification.cs" />
     <Compile Include="Sources\Model\IFileInfo.cs" />
-    <Compile Include="Sources\View\SearchControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

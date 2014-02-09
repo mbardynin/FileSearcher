@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 
+using FileSearcher.Common;
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
@@ -19,16 +20,18 @@ namespace FileSearcher.GUI.Controller
 	{
 		private readonly IFileSearchManager _model;
 		private readonly IMainView _view;
+		private readonly ISelectPluginController _selectPluginController;
 
 		private IFilter BaseFilter { get; set; }
 		public IPluginFilter PluginFilter { get; set; }
 
 		public MainController(
 			IFileSearchManager model,
-			IMainView view )
+			IMainView view, ISelectPluginController selectPluginController )
 		{
 			_model = model;
 			_view = view;
+			_selectPluginController = selectPluginController;
 
 			_view.Controller = this;
 
@@ -84,8 +87,12 @@ namespace FileSearcher.GUI.Controller
 			object sender,
 			EventArgs e )
 		{
+			FileSearchSettings fileSearchSettings = _view.GetMainSettings();
+			if( PluginFilter != null && PluginFilter.FileExtension.IsNotEmpty() )
+				fileSearchSettings.FileExtension = PluginFilter.FileExtension;
+
 			var result = _model.Search(
-				_view.GetMainSettings(),
+				fileSearchSettings,
 				BaseFilter.GetFilteringSpecification().And( PluginFilter.GetFilteringSpecification() ) ).ToList();
 			if( _model.ResultIsLimited )
 				_view.Warning = string.Format( "Shown first {0} find files.", Settings.Default.MaxItemsInSearchResults );
@@ -100,9 +107,7 @@ namespace FileSearcher.GUI.Controller
 			object sender,
 			EventArgs e )
 		{
-			IPluginFilter plugin = new NullFilter();
-			// получаем этот плагин
-			PluginFilter = plugin;
+			PluginFilter = _selectPluginController.GetPluginFilter(PluginFilter);
 		}
 	}
 }

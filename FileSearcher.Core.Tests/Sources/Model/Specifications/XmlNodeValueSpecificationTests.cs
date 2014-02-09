@@ -42,15 +42,15 @@ namespace FileSearcher.Core.Tests.Filters
 			get
 			{
 				yield return
-					new TestCaseData("node1", "q", "xml", GetFileInfo("xml", validXml)).Returns(false).SetName("Don't contains node with value.");
+					new TestCaseData("node1", "q", "xml", GetFileInfo(".xml", validXml)).Returns(false).SetName("Don't contains node with value.");
 				yield return
-					new TestCaseData("node1", "rrr", "xml", GetFileInfo("xml", validXml)).Returns(true).SetName("Contains node with value.");
+					new TestCaseData("node1", "rrr", "xml", GetFileInfo(".xml", validXml)).Returns(true).SetName("Contains node with value.");
 				yield return
-					new TestCaseData("node2", "www", "xml", GetFileInfo("xml", validXml)).Returns(true).SetName("Contains node with value and attributes.");
+					new TestCaseData("node2", "www", "xml", GetFileInfo(".xml", validXml)).Returns(true).SetName("Contains node with value and attributes.");
 				yield return
-					new TestCaseData("node2", "www", "txt", GetFileInfo("xml", validXml)).Returns(false).SetName("Wrong file extension.");
+					new TestCaseData("node2", "www", "txt", GetFileInfo(".xml", validXml)).Returns(false).SetName("Wrong file extension.");
 				yield return
-					new TestCaseData("node1", "rrr", "xml", GetFileInfo("xml", invalidXml)).Returns(false).SetName("Contains node with value in invalide xml.");
+					new TestCaseData("node1", "rrr", "xml", GetFileInfo(".xml", invalidXml)).Returns(false).SetName("Contains node with value in invalide xml.");
 
 			}
 		}

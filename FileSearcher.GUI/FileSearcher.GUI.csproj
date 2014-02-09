@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="Sources\Controller\Filters\NumbersFilter.cs" />
     <Compile Include="Sources\Controller\Filters\DateTimeFilter.cs" />
+    <Compile Include="Sources\Controller\ISelectPluginController.cs" />
+    <Compile Include="Sources\View\ISelectPluginView.cs" />
     <Compile Include="Sources\Controller\MainController.cs" />
     <Compile Include="Sources\Controller\Filters\AttributeFilter.cs" />
     <Compile Include="Sources\Controller\SelectPluginController.cs" />
@@ -120,6 +122,7 @@
     <EmbeddedResource Include="Sources\View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\FileSearcher.Common.Controller.IPluginFilter.datasource" />
     <None Include="Properties\DataSources\FileSearcher.Common.Model.IFileInfo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
