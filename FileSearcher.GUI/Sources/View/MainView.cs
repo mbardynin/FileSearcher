@@ -29,38 +29,24 @@ namespace FileSearcher.GUI.View
 				args ) => ClearSearchResults();
 
 			btnSelectPlugin.Click += ( sender,
-				args) => {
+				args ) => {
 				SelectPlugin( sender, args );
 				UpdatePluginFilter();
 			};
 
-			btnStop.Click += (sender,
-				args) => StopSearch(sender, args);
+			btnStop.Click += ( sender,
+				args ) => StopSearch( sender, args );
 		}
 
 		//-------------------------------------------------------------------------------------[]
 		public IMainController Controller { get; set; }
-		public event EventHandler StartSearch = delegate { };
-		public event EventHandler SelectPlugin = delegate { };
-		public event EventHandler StopSearch = delegate { };
+		public event EventHandler StartSearch = delegate {};
+		public event EventHandler SelectPlugin = delegate {};
+		public event EventHandler StopSearch = delegate {};
 
 		//-------------------------------------------------------------------------------------[]
-		public string Warning
-		{
-			get { return lblWarnings.Text; }
-			set
-			{
-				lblWarnings.Text = value;
-			}
-		}
-		public string Status
-		{
-			get { return lblStatus.Text; }
-			set
-			{
-				lblStatus.Text = value;
-			}
-		}
+		public string Warning { get { return lblWarnings.Text; } set { lblWarnings.Text = value; } }
+		public string Status { get { return lblStatus.Text; } set { lblStatus.Text = value; } }
 
 		//-------------------------------------------------------------------------------------[]
 		public void AddFilters( params Control[] filterControls )
@@ -103,7 +89,8 @@ namespace FileSearcher.GUI.View
 				txtPluginInfo.Clear();
 				flpFilters.Controls.Remove( pluginControl );
 			}
-			if( Controller.PluginFilter!= null && Controller.PluginFilter.UserControl != null ) {
+			if( Controller.PluginFilter != null &&
+			    Controller.PluginFilter.UserControl != null ) {
 				pluginControl = Controller.PluginFilter.UserControl;
 				txtPluginInfo.Text = Controller.PluginFilter.ToString();
 				AddFilters( pluginControl );
