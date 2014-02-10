@@ -159,7 +159,6 @@ namespace FileSearcher.GUI.View
 
 			btnSearch.Enabled = enabled;
 			btnClear.Enabled = enabled;
-			gbxFilters.Enabled = enabled;
 			gbxMainSearchSettings.Enabled = enabled;
 		}
 
