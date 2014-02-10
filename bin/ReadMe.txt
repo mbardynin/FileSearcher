@@ -1,0 +1,1 @@
+Запускать FileSearcher.Shell.exe 
