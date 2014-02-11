@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 
+using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.Common.Model
+namespace FileSearcher.GUI.Interfaces.Model
 {
 	public interface IFileSearchManager {
 		IEnumerable<IFileInfo> Search(

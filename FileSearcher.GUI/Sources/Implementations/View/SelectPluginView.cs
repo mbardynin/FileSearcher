@@ -3,9 +3,10 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-using FileSearcher.Common.Controller;
+using FileSearcher.Common.Controller.Filters;
+using FileSearcher.GUI.Interfaces.View;
 
-namespace FileSearcher.GUI.View
+namespace FileSearcher.GUI.Implementations.View
 {
 	public partial class SelectPluginView : Form, ISelectPluginView
 	{

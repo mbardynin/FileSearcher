@@ -8,7 +8,7 @@ using System.Security.AccessControl;
 
 using FileSearcher.Common.Model;
 
-namespace FileSearcher.GUI.Model.FileWrapper
+namespace FileSearcher.GUI.Implementations.Model
 {
 	public class FileInfoWrapper : IFileInfo
 	{

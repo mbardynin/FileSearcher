@@ -1,6 +1,6 @@
 ﻿// Mike Bardynin [mikebardynin@gmail.com]
 
-namespace FileSearcher.Common.Model
+namespace FileSearcher.GUI.Interfaces.Model
 {
 	public class FileSearchSettings
 	{

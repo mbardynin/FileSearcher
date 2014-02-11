@@ -3,9 +3,9 @@
 using System;
 using System.Windows.Forms;
 
-using FileSearcher.GUI.Controller;
-using FileSearcher.GUI.Model;
-using FileSearcher.GUI.View;
+using FileSearcher.GUI.Implementations.Controller;
+using FileSearcher.GUI.Implementations.Model;
+using FileSearcher.GUI.Implementations.View;
 
 namespace FileSearcher.GUI
 {

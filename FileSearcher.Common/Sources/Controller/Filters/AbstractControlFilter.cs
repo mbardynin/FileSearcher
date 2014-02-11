@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 using FileSearcher.Common.View;
 
-namespace FileSearcher.Common.Controller
+namespace FileSearcher.Common.Controller.Filters
 {
     public abstract class AbstractControlFilter<TView> : AbstractFilter where TView:Control, ISearchFilterView
     {

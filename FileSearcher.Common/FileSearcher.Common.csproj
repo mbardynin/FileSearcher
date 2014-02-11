@@ -75,19 +75,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\Controller\AbstractControlPluginFilter.cs" />
-    <Compile Include="Sources\Controller\AbstractFilter.cs" />
-    <Compile Include="Sources\Controller\AbstractControlFilter.cs" />
-    <Compile Include="Sources\Controller\FiltersCollection.cs" />
-    <Compile Include="Sources\Controller\IFilter.cs" />
-    <Compile Include="Sources\Controller\IMainController.cs" />
-    <Compile Include="Sources\Controller\NullFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\AbstractControlPluginFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\AbstractFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\AbstractControlFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\FiltersCollection.cs" />
+    <Compile Include="Sources\Controller\Filters\IFilter.cs" />
+    <Compile Include="Sources\Controller\Filters\NullFilter.cs" />
     <Compile Include="Sources\StringExtensions.cs" />
-    <Compile Include="Sources\View\IMainView.cs" />
     <Compile Include="Sources\View\ISearchFilterView.cs" />
-    <Compile Include="Sources\Model\FileSearchSettings.cs" />
-    <Compile Include="Sources\Model\IFileSearcher.cs" />
-    <Compile Include="Sources\Model\IFileSearchManager.cs" />
     <Compile Include="Sources\Model\Specifications\AndSpecification.cs" />
     <Compile Include="Sources\Model\Specifications\ExtensionMethods.cs" />
     <Compile Include="Sources\Model\Specifications\NullSpecification.cs" />

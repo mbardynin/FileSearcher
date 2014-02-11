@@ -1,4 +1,6 @@
-﻿namespace FileSearcher.GUI.View
+﻿using FileSearcher.Common.Controller.Filters;
+
+namespace FileSearcher.GUI.View
 {
 	partial class SelectPluginView
 	{
@@ -120,7 +122,7 @@
 			// 
 			// iPluginFilterBindingSource
 			// 
-			this.iPluginFilterBindingSource.DataSource = typeof(FileSearcher.Common.Controller.IPluginFilter);
+			this.iPluginFilterBindingSource.DataSource = typeof(IPluginFilter);
 			// 
 			// flowLayoutPanel1
 			// 

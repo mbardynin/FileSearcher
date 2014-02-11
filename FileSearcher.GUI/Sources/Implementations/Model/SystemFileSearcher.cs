@@ -5,9 +5,9 @@ using System.IO;
 using System.Linq;
 
 using FileSearcher.Common.Model;
-using FileSearcher.GUI.Model.FileWrapper;
+using FileSearcher.GUI.Interfaces.Model;
 
-namespace FileSearcher.GUI.Model
+namespace FileSearcher.GUI.Implementations.Model
 {
 	public class SystemFileSearcher : IFileSearcher
 	{

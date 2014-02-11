@@ -5,10 +5,12 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
 
-using FileSearcher.Common.Controller;
-using FileSearcher.GUI.View;
+using FileSearcher.Common.Controller.Filters;
+using FileSearcher.GUI.Implementations.View;
+using FileSearcher.GUI.Interfaces.Controller;
+using FileSearcher.GUI.Interfaces.View;
 
-namespace FileSearcher.GUI.Controller
+namespace FileSearcher.GUI.Implementations.Controller
 {
 	public class SelectPluginController : ISelectPluginController
 	{

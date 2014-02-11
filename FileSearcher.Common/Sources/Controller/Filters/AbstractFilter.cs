@@ -1,6 +1,6 @@
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.Common.Controller
+namespace FileSearcher.Common.Controller.Filters
 {
     public abstract class AbstractFilter : IFilter
     {

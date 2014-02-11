@@ -3,9 +3,9 @@
 using System;
 using System.Windows.Forms;
 
-using FileSearcher.Common.Controller;
+using FileSearcher.GUI.Interfaces.Controller;
 
-namespace FileSearcher.Common.View
+namespace FileSearcher.GUI.Interfaces.View
 {
 	public interface IMainView
 	{

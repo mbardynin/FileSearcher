@@ -5,6 +5,7 @@ using System.Diagnostics.Contracts;
 using System.Linq.Expressions;
 
 using FileSearcher.Common.Controller;
+using FileSearcher.Common.Controller.Filters;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 using FileSearcher.GUI.Controls.Sources;

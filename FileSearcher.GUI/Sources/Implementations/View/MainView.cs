@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.View;
+using FileSearcher.GUI.Controller;
+using FileSearcher.GUI.Model;
 
 namespace FileSearcher.GUI.View
 {

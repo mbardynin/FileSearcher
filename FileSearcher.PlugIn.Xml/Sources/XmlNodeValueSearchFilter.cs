@@ -4,6 +4,7 @@ using System.ComponentModel.Composition;
 
 using FileSearcher.Common;
 using FileSearcher.Common.Controller;
+using FileSearcher.Common.Controller.Filters;
 using FileSearcher.Common.Model.Specifications;
 
 namespace FileSearcher.PlugIn.Xml

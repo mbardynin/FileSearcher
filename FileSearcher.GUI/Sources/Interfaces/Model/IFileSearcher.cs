@@ -2,7 +2,9 @@
 
 using System.Collections.Generic;
 
-namespace FileSearcher.Common.Model
+using FileSearcher.Common.Model;
+
+namespace FileSearcher.GUI.Interfaces.Model
 {
 	public interface IFileSearcher
 	{

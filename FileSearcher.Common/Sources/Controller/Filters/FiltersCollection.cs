@@ -3,7 +3,7 @@ using System.Linq;
 
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.Common.Controller
+namespace FileSearcher.Common.Controller.Filters
 {
     public class FiltersCollection : AbstractFilter
     {

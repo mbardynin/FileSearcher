@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 
 using FileSearcher.Common.Controller;
+using FileSearcher.Common.Controller.Filters;
 
 namespace FileSearcher.GUI.View
 {

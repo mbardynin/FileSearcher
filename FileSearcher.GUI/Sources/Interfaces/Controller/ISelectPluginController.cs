@@ -1,6 +1,6 @@
-﻿using FileSearcher.Common.Controller;
+﻿using FileSearcher.Common.Controller.Filters;
 
-namespace FileSearcher.GUI.Controller
+namespace FileSearcher.GUI.Interfaces.Controller
 {
 	public interface ISelectPluginController {
 		IPluginFilter GetPluginFilter( IPluginFilter oldPluginFilter );

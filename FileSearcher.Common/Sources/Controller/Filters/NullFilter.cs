@@ -2,7 +2,7 @@ using System.Windows.Forms;
 
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.Common.Controller
+namespace FileSearcher.Common.Controller.Filters
 {
 	public class NullFilter : IPluginFilter {
 		public ISpecification GetSpecification()

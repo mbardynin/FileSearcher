@@ -8,12 +8,15 @@ using System.Linq.Expressions;
 
 using FileSearcher.Common;
 using FileSearcher.Common.Controller;
+using FileSearcher.Common.Controller.Filters;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 using FileSearcher.Common.View;
 using FileSearcher.GUI.Controller.Filters;
 using FileSearcher.GUI.Controls.Sources;
+using FileSearcher.GUI.Model;
 using FileSearcher.GUI.Properties;
+using FileSearcher.GUI.View;
 
 namespace FileSearcher.GUI.Controller
 {
