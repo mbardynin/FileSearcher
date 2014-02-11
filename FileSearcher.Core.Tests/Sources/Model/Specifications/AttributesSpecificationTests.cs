@@ -5,7 +5,7 @@ using System.Collections;
 using System.IO;
 
 using FileSearcher.Common.Model;
-using FileSearcher.GUI.Model.Specifications;
+using FileSearcher.GUI.Implementations.Model.Specifications;
 
 using Moq;
 

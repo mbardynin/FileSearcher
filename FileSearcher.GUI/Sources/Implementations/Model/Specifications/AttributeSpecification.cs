@@ -3,7 +3,7 @@ using System.IO;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.GUI.Model.Specifications
+namespace FileSearcher.GUI.Implementations.Model.Specifications
 {
 	public class AttributeSpecification : ISpecification
 	{

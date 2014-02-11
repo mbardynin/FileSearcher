@@ -6,7 +6,7 @@ using System.Diagnostics.Contracts;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
 
-namespace FileSearcher.GUI.Model.Specifications
+namespace FileSearcher.GUI.Implementations.Model.Specifications
 {
 	public class SizeSpecification : ISpecification
 	{

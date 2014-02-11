@@ -4,20 +4,16 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-using FileSearcher.Common.Controller;
 using FileSearcher.Common.Model;
-using FileSearcher.Common.View;
-using FileSearcher.GUI.Controller;
-using FileSearcher.GUI.Model;
+using FileSearcher.GUI.Interfaces.Controller;
+using FileSearcher.GUI.Interfaces.View;
 
-namespace FileSearcher.GUI.View
+namespace FileSearcher.GUI.Implementations.View
 {
 	public partial class MainView : Form, IMainView
 	{
 		private Control _pluginControl;
-		private int CountFiles
-		{ set { lblFilesCount.Text = value.ToString(); }
-		}
+		private int CountFiles { set { lblFilesCount.Text = value.ToString(); } }
 
 		public MainView()
 		{
@@ -32,6 +28,12 @@ namespace FileSearcher.GUI.View
 
 		//-------------------------------------------------------------------------------------[]
 		public IMainController Controller { get; set; }
+		public bool IncludeSubDirectories
+		{
+			get { return chbIncludeSubDirectories.Checked; }
+			set { chbIncludeSubDirectories.Checked = value; }
+		}
+		public string StartPath { get { return txtPath.Text; } set { txtPath.Text = value; } }
 		public event EventHandler SelectPlugin = delegate {};
 		public event EventHandler StopSearch = delegate {};
 
@@ -46,13 +48,15 @@ namespace FileSearcher.GUI.View
 		}
 
 
+
+
 		#region Routines
 		private void InitHandlers()
 		{
 			btnSearch.Click += ( sender,
 				args ) => {
 				OnStartSearch();
-				searchWorker.RunWorkerAsync( GetMainSettings() );
+				searchWorker.RunWorkerAsync();
 			};
 
 			btnClear.Click += ( sender,
@@ -82,14 +86,15 @@ namespace FileSearcher.GUI.View
 		{
 			var dialogResult = folderBrowserDialog1.ShowDialog();
 			if( dialogResult == DialogResult.OK )
-				txtPath.Text = folderBrowserDialog1.SelectedPath;
+				StartPath = folderBrowserDialog1.SelectedPath;
 		}
+
 		private void OnSearchWorkerOnDoWork(
 			object sender,
 			DoWorkEventArgs args )
 		{
 			var i = 0;
-			foreach( var file in Controller.Search( args.Argument as FileSearchSettings ) ) {
+			foreach( var file in Controller.Search() ) {
 				if( searchWorker.CancellationPending ) {
 					args.Cancel = true;
 					return;
@@ -99,63 +104,52 @@ namespace FileSearcher.GUI.View
 			}
 		}
 
-		private FileSearchSettings GetMainSettings()
-		{
-			return new FileSearchSettings() {
-				Path = txtPath.Text,
-				IncludeSubDirectories = chbIncludeSubDirectories.Checked,
-				FileExtension = "*"
-			};
-		}
-
 		//-------------------------------------------------------------------------------------[]
 		private void ClearSearchResults()
 		{
 			lvSearchResults.Items.Clear();
 		}
+
 		private void UpdatePluginFilter()
 		{
-			if (_pluginControl != null)
-			{
+			if( _pluginControl != null ) {
 				txtPluginInfo.Clear();
-				flpFilters.Controls.Remove(_pluginControl);
+				flpFilters.Controls.Remove( _pluginControl );
 			}
-			if (Controller.PluginFilter != null &&
-				Controller.PluginFilter.UserControl != null)
-			{
+			if( Controller.PluginFilter != null &&
+			    Controller.PluginFilter.UserControl != null ) {
 				_pluginControl = Controller.PluginFilter.UserControl;
 				txtPluginInfo.Text = Controller.PluginFilter.ToString();
-				AddFilters(_pluginControl);
+				AddFilters( _pluginControl );
 			}
 		}
 
 		private void OnStartSearch()
 		{
 			ClearSearchResults();
-			EnableControls(false);
+			EnableControls( false );
 			toolStripProgressBar1.MarqueeAnimationSpeed = 100;
-			Status = "Searching files in directory " + txtPath.Text;
+			Status = "Searching files in directory " + StartPath;
 			Warning = "";
 		}
 
-		private void OnStopSearch(RunWorkerCompletedEventArgs args)
+		private void OnStopSearch( RunWorkerCompletedEventArgs args )
 		{
 			lvSearchResults.Refresh();
 			//dgvSearchResults.Refresh();
-			EnableControls(true);
+			EnableControls( true );
 			toolStripProgressBar1.MarqueeAnimationSpeed = 0;
 			Status = string.Empty;
-			if (args.Cancelled)
+			if( args.Cancelled )
 				Warning = "Searching was aborted";
-			if (args.Error != null)
-			{
+			if( args.Error != null ) {
 				Warning = "Exception! " + args.Error.Message;
-				MessageBox.Show(args.Error.ToString());
+				MessageBox.Show( args.Error.ToString() );
 			}
 			CountFiles = lvSearchResults.Items.Count;
 		}
 
-		private void EnableControls(bool enabled)
+		private void EnableControls( bool enabled )
 		{
 			btnStop.Enabled = !enabled;
 
@@ -166,26 +160,26 @@ namespace FileSearcher.GUI.View
 
 		private void AddItemToSearchResults(
 			IFileInfo file,
-			int i)
+			int i )
 		{
 			BeginInvoke(
 				new Action(
-					() =>
-					{
-						lvSearchResults.Items.Add(ConvertFileInfoToListViewItem(file));
-						if ((i & 1333) == 1333)
+					() => {
+						lvSearchResults.Items.Add( ConvertFileInfoToListViewItem( file ) );
+						CountFiles = lvSearchResults.Items.Count;
+						if( ( i & 1333 ) == 1333 )
 							lvSearchResults.Refresh();
-					}));
+					} ) );
 		}
 
-		private static ListViewItem ConvertFileInfoToListViewItem(IFileInfo file)
+		private static ListViewItem ConvertFileInfoToListViewItem( IFileInfo file )
 		{
 			return
 				new ListViewItem(
 					new[] {
 						file.Name, ( file.Length/1024 ).ToString(), file.DirectoryName, file.Attributes.ToString(),
 						file.CreationTime.ToString(), file.LastAccessTime.ToString(), file.LastWriteTime.ToString()
-					});
+					} );
 		}
 		#endregion
 	}

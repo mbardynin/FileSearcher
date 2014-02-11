@@ -14,6 +14,6 @@ namespace FileSearcher.Common.Controller.Filters
 		public Control UserControl { get; private set; }
 		public string Name { get; private set; }
 		public string Description { get; private set; }
-		public string FileExtension { get; private set; }
+		public string FileExtension { get { return "*"; } }
 	}
 }

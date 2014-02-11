@@ -2,23 +2,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.IO;
-using System.Linq;
 using System.Linq.Expressions;
 
 using FileSearcher.Common;
-using FileSearcher.Common.Controller;
 using FileSearcher.Common.Controller.Filters;
 using FileSearcher.Common.Model;
 using FileSearcher.Common.Model.Specifications;
-using FileSearcher.Common.View;
-using FileSearcher.GUI.Controller.Filters;
 using FileSearcher.GUI.Controls.Sources;
-using FileSearcher.GUI.Model;
+using FileSearcher.GUI.Implementations.Controller.Filters;
+using FileSearcher.GUI.Interfaces.Controller;
+using FileSearcher.GUI.Interfaces.Model;
+using FileSearcher.GUI.Interfaces.View;
 using FileSearcher.GUI.Properties;
-using FileSearcher.GUI.View;
 
-namespace FileSearcher.GUI.Controller
+namespace FileSearcher.GUI.Implementations.Controller
 {
 	internal class MainController : IMainController
 	{
@@ -28,10 +27,11 @@ namespace FileSearcher.GUI.Controller
 
 		private IFilter BaseFilter { get; set; }
 		public IPluginFilter PluginFilter { get; set; }
-		public IEnumerable<IFileInfo> Search( FileSearchSettings fileSearchSettings )
+		public IEnumerable<IFileInfo> Search(  )
 		{
-			if (PluginFilter != null && PluginFilter.FileExtension.IsNotEmpty())
-				fileSearchSettings.FileExtension = PluginFilter.FileExtension;
+			//Contract.Ensures(Contract.Result<IEnumerable<IFileInfo>>() != null);
+
+			var fileSearchSettings = new FileSearchSettings() { Path = _view.StartPath, IncludeSubDirectories = _view.IncludeSubDirectories, FileExtension = PluginFilter.FileExtension };
 
 			return _model.Search(
 				fileSearchSettings,
@@ -42,6 +42,10 @@ namespace FileSearcher.GUI.Controller
 			IFileSearchManager model,
 			IMainView view, ISelectPluginController selectPluginController )
 		{
+			Contract.Requires<ArgumentNullException>(model != null);
+			Contract.Requires<ArgumentNullException>(view != null);
+			Contract.Requires<ArgumentNullException>(selectPluginController != null);
+
 			_model = model;
 			_view = view;
 			_selectPluginController = selectPluginController;
@@ -108,6 +112,14 @@ namespace FileSearcher.GUI.Controller
 			EventArgs e )
 		{
 			PluginFilter = _selectPluginController.GetPluginFilter(PluginFilter);
+		}
+
+		[ContractInvariantMethod]
+		private void Invariant()
+		{
+		   // Check if the object is in a valid state 
+			Contract.Invariant(PluginFilter != null);
+			Contract.Invariant(BaseFilter != null);
 		}
 	}
 }

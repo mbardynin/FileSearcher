@@ -5,7 +5,6 @@ using System.IO;
 using System.Text;
 
 using FileSearcher.Common.Model;
-using FileSearcher.GUI.Controller.Filters;
 using FileSearcher.PlugIn.Txt;
 
 using Moq;

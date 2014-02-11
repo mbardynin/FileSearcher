@@ -2,13 +2,12 @@
 
 using System.IO;
 
-using FileSearcher.Common.Controller;
 using FileSearcher.Common.Controller.Filters;
 using FileSearcher.Common.Model.Specifications;
 using FileSearcher.GUI.Controls.Sources;
-using FileSearcher.GUI.Model.Specifications;
+using FileSearcher.GUI.Implementations.Model.Specifications;
 
-namespace FileSearcher.GUI.Controller.Filters
+namespace FileSearcher.GUI.Implementations.Controller.Filters
 {
 	internal sealed class AttributeFilter : AbstractControlFilter<CheckboxSearchFilterView>
 	{

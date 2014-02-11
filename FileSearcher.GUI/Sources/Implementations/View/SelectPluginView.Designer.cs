@@ -1,6 +1,6 @@
 ﻿using FileSearcher.Common.Controller.Filters;
 
-namespace FileSearcher.GUI.View
+namespace FileSearcher.GUI.Implementations.View
 {
 	partial class SelectPluginView
 	{
