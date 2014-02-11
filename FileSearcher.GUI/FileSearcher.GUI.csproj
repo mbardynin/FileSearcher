@@ -80,39 +80,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\Implementations\Controller\Filters\NumbersFilter.cs" />
-    <Compile Include="Sources\Implementations\Controller\Filters\DateTimeFilter.cs" />
-    <Compile Include="Sources\Interfaces\Controller\IMainController.cs" />
-    <Compile Include="Sources\Interfaces\Controller\ISelectPluginController.cs" />
-    <Compile Include="Sources\Interfaces\Model\FileSearchSettings.cs" />
-    <Compile Include="Sources\Interfaces\Model\IFileSearcher.cs" />
-    <Compile Include="Sources\Interfaces\Model\IFileSearchManager.cs" />
-    <Compile Include="Sources\Interfaces\View\IMainView.cs" />
-    <Compile Include="Sources\Interfaces\View\ISelectPluginView.cs" />
-    <Compile Include="Sources\Implementations\Controller\MainController.cs" />
-    <Compile Include="Sources\Implementations\Controller\Filters\AttributeFilter.cs" />
-    <Compile Include="Sources\Implementations\Controller\SelectPluginController.cs" />
-    <Compile Include="Sources\Implementations\Model\FileSearchManager.cs" />
-    <Compile Include="Sources\Implementations\Model\FileInfoWrapper.cs" />
-    <Compile Include="Sources\Implementations\Model\Specifications\AttributeSpecification.cs" />
-    <Compile Include="Sources\Implementations\Model\Specifications\DateTimeSpecification.cs" />
-    <Compile Include="Sources\Implementations\Model\Specifications\SizeSpecification.cs" />
-    <Compile Include="Sources\Implementations\Model\SystemFileSearcher.cs" />
-    <Compile Include="Sources\Implementations\View\SelectPluginView.cs">
+    <Compile Include="Sources\Imp\Controller\Filters\NumbersFilter.cs" />
+    <Compile Include="Sources\Imp\Controller\Filters\DateTimeFilter.cs" />
+    <Compile Include="Sources\Pub\Controller\IMainController.cs" />
+    <Compile Include="Sources\Pub\Controller\ISelectPluginController.cs" />
+    <Compile Include="Sources\Pub\Model\FileSearchSettings.cs" />
+    <Compile Include="Sources\Pub\Model\IFileSearcher.cs" />
+    <Compile Include="Sources\Pub\Model\IFileSearchManager.cs" />
+    <Compile Include="Sources\Pub\View\IMainView.cs" />
+    <Compile Include="Sources\Pub\View\ISelectPluginView.cs" />
+    <Compile Include="Sources\Imp\Controller\MainController.cs" />
+    <Compile Include="Sources\Imp\Controller\Filters\AttributeFilter.cs" />
+    <Compile Include="Sources\Imp\Controller\SelectPluginController.cs" />
+    <Compile Include="Sources\Imp\Model\FileSearchManager.cs" />
+    <Compile Include="Sources\Imp\Model\FileInfoWrapper.cs" />
+    <Compile Include="Sources\Imp\Model\Specifications\AttributeSpecification.cs" />
+    <Compile Include="Sources\Imp\Model\Specifications\DateTimeSpecification.cs" />
+    <Compile Include="Sources\Imp\Model\Specifications\SizeSpecification.cs" />
+    <Compile Include="Sources\Imp\Model\SystemFileSearcher.cs" />
+    <Compile Include="Sources\Imp\View\SelectPluginView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Implementations\View\SelectPluginView.Designer.cs">
+    <Compile Include="Sources\Imp\View\SelectPluginView.Designer.cs">
       <DependentUpon>SelectPluginView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sources\Implementations\View\MainView.cs">
+    <Compile Include="Sources\Imp\View\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sources\Implementations\View\MainView.Designer.cs">
+    <Compile Include="Sources\Imp\View\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Sources\Implementations\View\SelectPluginView.resx">
+    <EmbeddedResource Include="Sources\Imp\View\SelectPluginView.resx">
       <DependentUpon>SelectPluginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -124,7 +124,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sources\Implementations\View\MainView.resx">
+    <EmbeddedResource Include="Sources\Imp\View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\FileSearcher.Common.Controller.IPluginFilter.datasource" />
